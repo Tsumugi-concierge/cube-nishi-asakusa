@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nearby Shops — Cube Nishi Asakusa</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+  :root{--accent:#e65100;--accent-light:#ffcc80;--cream:#fff8f0;--text-dark:#3e1a00;--text-mid:#6d3a00;}
+  .lang-bar{display:flex;justify-content:center;gap:6px;padding:10px 16px;flex-wrap:wrap;background:var(--cream);}
+  .lang-btn{border:2px solid var(--accent-light);background:rgba(255,255,255,0.92);border-radius:50px;padding:4px 9px;font-family:'Nunito',sans-serif;font-size:0.72rem;font-weight:800;color:var(--text-mid);cursor:pointer;transition:all 0.2s;box-shadow:0 2px 8px rgba(60,40,0,0.12);}
+  .lang-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .lang-btn:hover:not(.active){border-color:var(--accent);color:var(--accent);}
+  .info-card{background:#fff;border-left:4px solid var(--accent);border-radius:12px;padding:16px 18px;margin:16px 0;box-shadow:0 2px 10px rgba(60,40,0,0.10);}
+  .info-card p{font-size:0.92rem;line-height:1.75;color:var(--text-mid);margin:0;}
+  .info-card p+p{margin-top:8px;}
+  .section-title{font-family:'Pacifico',cursive;font-size:1rem;color:var(--accent);margin-bottom:8px;}
+  .rest-card{background:#fff;border-radius:14px;padding:14px 16px;margin:12px 0;box-shadow:0 2px 10px rgba(60,40,0,0.10);}
+  .rest-card .rest-name{font-weight:800;font-size:0.97rem;color:var(--text-dark);margin-bottom:4px;}
+  .rest-card .rest-desc{font-size:0.88rem;color:var(--text-mid);line-height:1.6;margin-bottom:6px;}
+  .rest-card a{display:inline-flex;align-items:center;gap:5px;font-size:0.82rem;font-weight:700;color:var(--accent);text-decoration:none;}
+  .rest-card a:hover{opacity:0.75;}
+  .page-img{width:100%;border-radius:12px;margin:12px 0;box-shadow:0 2px 12px rgba(60,40,0,0.12);}
+  .caption{background:#fff;border-left:4px solid var(--accent);border-radius:0 10px 10px 0;padding:10px 14px;font-size:0.88rem;line-height:1.7;color:var(--text-mid);margin-bottom:16px;}
+  .maps-btn{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;padding:14px 28px;border-radius:50px;font-weight:800;font-size:1rem;margin:0 auto 20px;max-width:280px;box-shadow:0 4px 14px rgba(60,40,0,0.18);transition:opacity 0.2s;}
+  .maps-btn:hover{opacity:0.85;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text-dark);min-height:100vh;}
+  .top-bar{background:linear-gradient(135deg,var(--accent) 0%,color-mix(in srgb,var(--accent) 70%,black) 100%);padding:16px 20px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(0,0,0,0.15);}
+  .back-btn{background:rgba(255,255,255,0.25);border:none;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;color:#fff;text-decoration:none;flex-shrink:0;transition:background 0.2s;}
+  .back-btn:hover{background:rgba(255,255,255,0.4);}
+  .top-title{font-family:'Pacifico',cursive;font-size:1.3rem;color:#fff;text-shadow:1px 2px 4px rgba(0,0,0,0.2);flex:1;}
+  .top-emoji{font-size:1.8rem;}
+  .content{padding:20px 16px 40px;max-width:640px;margin:0 auto;}
+  .back-footer{text-align:center;margin-top:28px;padding-bottom:20px;}
+  .back-footer a{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:800;font-size:0.9rem;transition:opacity 0.2s;}
+  .back-footer a:hover{opacity:0.8;}
+</style>
+</head>
+<body>
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en',this)">&#x1F1EC;&#x1F1E7; EN</button>
+  <button class="lang-btn" onclick="setLang('ja',this)">&#x1F1EF;&#x1F1F5; JA</button>
+  <button class="lang-btn" onclick="setLang('zh',this)">&#x1F1E8;&#x1F1F3; ZH</button>
+  <button class="lang-btn" onclick="setLang('ko',this)">&#x1F1F0;&#x1F1F7; KO</button>
+  <button class="lang-btn" onclick="setLang('fr',this)">&#x1F1EB;&#x1F1F7; FR</button>
+  <button class="lang-btn" onclick="setLang('es',this)">&#x1F1EA;&#x1F1F8; ES</button>
+</div>
+<div class="top-bar">
+  <a href="../" class="back-btn">&#x2190;</a>
+  <span class="top-emoji">🛒</span>
+  <div class="top-title" data-i18n="pageTitle">Nearby Shops</div>
+</div>
+<div class="content">
+  <div class="info-card"><p data-i18n="nb0"></p></div>
+  <div class="section-title" data-i18n="restTitle"></div>
+  <div class="info-card"><p data-i18n="restNote"></p></div>
+  <div class="rest-card">
+    <div class="rest-name" data-i18n="rn0">🍱 Japanese Set Meal – Mizuguchi Shokudo</div>
+    <div class="rest-desc" data-i18n="rd0">Traditional diner-style restaurant serving a wide range of classic teishoku (set meals).</div>
+    <a href="https://maps.app.goo.gl/8u62iSNtn5o9woSc9" target="_blank">&#x1F4CD; Google Maps</a>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name" data-i18n="rn1">🍣 Sushi – Kura Sushi</div>
+    <div class="rest-desc" data-i18n="rd1">One of Japan's popular conveyor belt sushi chains. This is the flagship store with traditional Japanese interior.</div>
+    <a href="https://maps.app.goo.gl/eYM2drqN23wr7ibU7" target="_blank">&#x1F4CD; Google Maps</a>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name" data-i18n="rn2">🥖 Bakery – Pelican Bakery</div>
+    <div class="rest-desc" data-i18n="rd2">One of the most famous bakeries in Asakusa, beloved by locals with fans coming from afar.</div>
+    <a href="https://maps.app.goo.gl/1vujnhFuibfhJZD58" target="_blank">&#x1F4CD; Google Maps</a>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name" data-i18n="rn3">☕ Cafe – Cafe & Bar Nishi Asakusa Kuronekotei</div>
+    <div class="rest-desc" data-i18n="rd3">A retro-style cafe full of Showa-era charm. The 'black cat pudding' is especially popular.</div>
+    <a href="https://maps.app.goo.gl/tHmd1twnRReaLorNA" target="_blank">&#x1F4CD; Google Maps</a>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name" data-i18n="rn4">🍜 Ramen – Fuji Ramen</div>
+    <div class="rest-desc" data-i18n="rd4">A cozy ramen shop with around 10 counter seats, serving hearty and generous portions.</div>
+    <a href="https://maps.app.goo.gl/oaztV9dBkWd6hye9A" target="_blank">&#x1F4CD; Google Maps</a>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name" data-i18n="rn5">🥘 Sukiyaki – Asakusa Imaan (Kokusai-dori Main Branch)</div>
+    <div class="rest-desc" data-i18n="rd5">A legendary sukiyaki restaurant. High-quality meat and ingredients are well worth the price.</div>
+    <a href="https://maps.app.goo.gl/3hQRUBd73MMUwRqS6" target="_blank">&#x1F4CD; Google Maps</a>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name" data-i18n="rn6">🍳 Western Restaurant – Mont Blanc</div>
+    <div class="rest-desc" data-i18n="rd6">A famous restaurant frequented by celebrities, with autographs all over the walls. Famous for Hamburg steak and a wide variety of appetizers and drinks.</div>
+    <a href="https://maps.app.goo.gl/Gvj73KCs5sDnBeudA" target="_blank">&#x1F4CD; Google Maps</a>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name" data-i18n="rn7">🍖 Katsudon – Katsuya</div>
+    <div class="rest-desc" data-i18n="rd7">A casual shop for delicious and affordable katsudon (cutlet rice bowl).</div>
+    <a href="https://maps.app.goo.gl/P9KPHMJwHq7QwHKk9" target="_blank">&#x1F4CD; Google Maps</a>
+  </div>
+  <div class="rest-card">
+    <div class="rest-name" data-i18n="rn8">🥘 Monjayaki – Asakusa Monja Zenya</div>
+    <div class="rest-desc" data-i18n="rd8">A long-running Asakusa monjayaki restaurant (different from Tsukishima style). Uses flavorful broth, with staff cooking tableside for a fun live experience.</div>
+    <a href="https://maps.app.goo.gl/eFWTJVG8NRQP2ja9A" target="_blank">&#x1F4CD; Google Maps</a>
+  </div>
+
+  <div class="back-footer">
+    <a href="../" data-i18n="backToMenu">&#x2190; Back to Menu</a>
+  </div>
+</div>
+<script>
+const S={
+  en:{
+    pageTitle:"Nearby Shops",
+    backToMenu:"← Back to Menu",
+    nb0:"Kappabashi — famous for kitchenware and tableware — is just a 1-minute walk away! There are many unique shops and it's fun to explore. If you have some free time on your second day, be sure to check it out!",
+    restTitle:"Restaurant Recommendations",
+    restNote:"Some restaurants may have different opening hours or temporary closures. Please check before visiting.",
+    rn0:"🍱 Japanese Set Meal – Mizuguchi Shokudo",
+    rd0:"Traditional diner-style restaurant serving a wide range of classic teishoku (set meals).",
+    rn1:"🍣 Sushi – Kura Sushi",
+    rd1:"One of Japan's popular conveyor belt sushi chains. This is the flagship store with traditional Japanese interior.",
+    rn2:"🥖 Bakery – Pelican Bakery",
+    rd2:"One of the most famous bakeries in Asakusa, beloved by locals with fans coming from afar.",
+    rn3:"☕ Cafe – Cafe & Bar Nishi Asakusa Kuronekotei",
+    rd3:"A retro-style cafe full of Showa-era charm. The 'black cat pudding' is especially popular.",
+    rn4:"🍜 Ramen – Fuji Ramen",
+    rd4:"A cozy ramen shop with around 10 counter seats, serving hearty and generous portions.",
+    rn5:"🥘 Sukiyaki – Asakusa Imaan (Kokusai-dori Main Branch)",
+    rd5:"A legendary sukiyaki restaurant. High-quality meat and ingredients are well worth the price.",
+    rn6:"🍳 Western Restaurant – Mont Blanc",
+    rd6:"A famous restaurant frequented by celebrities, with autographs all over the walls. Famous for Hamburg steak and a wide variety of appetizers and drinks.",
+    rn7:"🍖 Katsudon – Katsuya",
+    rd7:"A casual shop for delicious and affordable katsudon (cutlet rice bowl).",
+    rn8:"🥘 Monjayaki – Asakusa Monja Zenya",
+    rd8:"A long-running Asakusa monjayaki restaurant (different from Tsukishima style). Uses flavorful broth, with staff cooking tableside for a fun live experience."
+  },
+  ja:{
+    pageTitle:"近くのお店",
+    backToMenu:"← メニューに戻る",
+    nb0:"キッチン用品や食器で有名な合羽橋まで徒歩1分です。ユニークなお店がたくさんあり、探索するのが楽しいので、2日目に時間がある場合は、ぜひチェックしてみてください！",
+    restTitle:"おすすめレストラン",
+    restNote:"営業時間が異なるお店や臨時休業中のお店もありますので、お出かけ前にご確認ください。",
+    rn0:"🍱 和食セット（定食）– 水口食堂",
+    rd0:"伝統的なダイナースタイルのレストランで、クラシックな定食を幅広く提供しています。",
+    rn1:"🍣 寿司 – くら寿司",
+    rd1:"日本の地元で人気のある回転寿司チェーンのひとつ。こちらは旗艦店なので、伝統的な和風インテリアも楽しめます。",
+    rn2:"🥖 ベーカリー – ペリカンベーカリー",
+    rd2:"浅草で最も有名なベーカリーのひとつ。地元の人々に愛され、遠くからファンが訪れることもあります。",
+    rn3:"☕ カフェ – カフェ＆バー 西浅草黒猫亭",
+    rd3:"昭和の魅力がいっぱいのレトロなスタイルのカフェ。「黒猫プリン」が特に人気です。",
+    rn4:"🍜 ラーメン – 富士ラーメン",
+    rd4:"カウンター席が10席ほどある居心地の良いラーメン店で、ボリュームたっぷりのラーメンを提供しています。",
+    rn5:"🥘 すき焼き – 浅草今庵（国際通り本店）",
+    rd5:"すき焼きの伝説のレストラン。高品質の肉と食材が、その価格に見合うだけの価値があります。",
+    rn6:"🍳 洋食レストラン – モンブラン",
+    rd6:"有名人がよく訪れる有名なレストランで、壁にはサインがたくさん書かれています。ハンバーグステーキで有名ですが、幅広い種類の前菜やドリンクも提供しています。",
+    rn7:"🍖 カツ丼 – カツヤ",
+    rd7:"手軽に美味しいかつ丼（カツレツ丼）が食べられるカジュアルなお店です。",
+    rn8:"🥘 もんじゃ焼き – 浅草もんじゃ全屋",
+    rd8:"長年営業している浅草もんじゃレストラン（月島スタイルとは異なります）。風味豊かなスープを使い、スタッフが目の前で調理してくれるので、楽しくライブ体験ができます。"
+  },
+  zh:{
+    pageTitle:"附近商店",
+    backToMenu:"← 返回菜单",
+    nb0:"以厨具和餐具著名的合羽桥距这里步行仅1分钟！有很多独特的店铺，探索起来非常有趣。如果第二天有空，一定要去看看！",
+    restTitle:"餐厅推荐",
+    restNote:"部分餐厅营业时间不同或有临时休业，光临前请确认。",
+    rn0:"🍱 日式套餐 – 水口食堂",
+    rd0:"传统食堂风格餐厅，提供多种经典定食套餐。",
+    rn1:"🍣 寿司 – 藏寿司",
+    rd1:"日本当地人气回转寿司连锁店之一，这是旗舰店，可以享受传统和风装潢。",
+    rn2:"🥖 面包店 – 鹈鹕面包",
+    rd2:"浅草最著名的面包店之一，深受当地人喜爱，也有远道而来的粉丝。",
+    rn3:"☕ 咖啡馆 – 咖啡&酒吧 西浅草黑猫亭",
+    rd3:"充满昭和时代魅力的复古风格咖啡馆，'黑猫布丁'尤其受欢迎。",
+    rn4:"🍜 拉面 – 富士拉面",
+    rd4:"有约10个吧台席位的舒适拉面店，提供分量十足的拉面。",
+    rn5:"🥘 寿喜烧 – 浅草今庵（国际通大道本店）",
+    rd5:"传奇的寿喜烧餐厅。高品质的肉类和食材，物有所值。",
+    rn6:"🍳 西式餐厅 – 蒙布朗",
+    rd6:"经常有名人光顾的知名餐厅，墙上挂满了签名。以汉堡牛排出名，还提供各种前菜和饮品。",
+    rn7:"🍖 炸猪排饭 – 胜屋",
+    rd7:"可以方便享用美味实惠的猪排饭的休闲店。",
+    rn8:"🥘 文字烧 – 浅草もんじゃ全屋",
+    rd8:"在浅草长期经营的文字烧餐厅（与月岛风格不同）。使用风味浓郁的汤底，工作人员在面前烹饪，体验有趣的现场感。"
+  },
+  ko:{
+    pageTitle:"근처 상점",
+    backToMenu:"← 메뉴로 돌아가기",
+    nb0:"주방용품과 식기로 유명한 갓파바시까지 도보 1분입니다！독특한 가게들이 많아 탐험하는 즐거움이 있으니, 이틀째에 시간이 있으시면 꼭 둘러보세요！",
+    restTitle:"맛집 추천",
+    restNote:"이중 시간이 다르거나 임시휴업 중인 곳도 있으니 방문 전 확인하세요.",
+    rn0:"🍱 일본식 정식 – 미즈구치 쇼쿠도",
+    rd0:"전통적인 식당 스타일로 다양한 정식을 제공합니다.",
+    rn1:"🍣 스시 – 쿠라스시",
+    rd1:"일본 현지인에게 인기 있는 회전초밥 체인 중 하나. 여기는 플래그십 스토어로 전통적인 일본식 인테리어도 즐길 수 있습니다.",
+    rn2:"🥖 베이커리 – 펠리칸 베이커리",
+    rd2:"아사쿠사에서 가장 유명한 베이커리 중 하나. 지역 주민들이 사랑하고 먼 곳에서 팬들이 찾아옵니다.",
+    rn3:"☕ 카페 – 카페&바 니시아사쿠사 쿠로네코테이",
+    rd3:"쇼와 시대의 매력이 가득한 레트로 스타일 카페. '검은 고양이 푸딩'이 특히 인기입니다.",
+    rn4:"🍜 라멘 – 후지 라멘",
+    rd4:"카운터 석이 10석 정도인 아늑한 라멘 가게로, 든든한 라멘을 제공합니다.",
+    rn5:"🥘 스키야키 – 아사쿠사 이마안（국제통 본점）",
+    rd5:"전설적인 스키야키 레스토랑. 고품질 고기와 식재료가 그 가격의 가치가 있습니다.",
+    rn6:"🍳 양식 레스토랑 – 몽블랑",
+    rd6:"유명인들이 자주 찾는 유명 레스토랑으로 벽에 싸인이 가득합니다. 함버그 스테이크로 유명하며 다양한 전채 요리와 음료도 제공합니다.",
+    rn7:"🍖 가츠동 – 카츠야",
+    rd7:"저렴하고 맛있는 가츠동（카츠레츠 덮밥）을 먹을 수 있는 캐주얼한 가게.",
+    rn8:"🥘 몬자야키 – 아사쿠사 몬자 젠야",
+    rd8:"오랫동안 영업해온 아사쿠사 몬자야키 레스토랑（쓰키지마 스타일과 다릅니다）. 풍미 있는 육수를 사용하며 직원이 눈 앞에서 요리해 줘 즐거운 라이브 체험을 할 수 있습니다."
+  },
+  fr:{
+    pageTitle:"Commerces a proximite",
+    backToMenu:"← Retour au menu",
+    nb0:"Kappabashi, celebre pour ses ustensiles de cuisine et vaisselle, se trouve a seulement 1 minute a pied ! Il y a de nombreuses boutiques uniques a explorer. Si vous avez du temps le deuxieme jour, n'hesitez pas a y aller !",
+    restTitle:"Restaurants recommandes",
+    restNote:"Certains restaurants peuvent avoir des horaires differents ou etre temporairement fermes. Verifiez avant de vous y rendre.",
+    rn0:"🍱 Teishoku – Mizuguchi Shokudo",
+    rd0:"Restaurant traditionnel de type diner proposant une large gamme de teishoku (repas complets).",
+    rn1:"🍣 Sushi – Kura Sushi",
+    rd1:"L'un des kaiten-sushi populaires au Japon. Le magasin phare avec un intérieur japonais traditionnel.",
+    rn2:"🥖 Boulangerie – Pelican Bakery",
+    rd2:"L'une des boulangeries les plus célèbres d'Asakusa, chérie des locaux et visitée par des fans de loin.",
+    rn3:"☕ Cafe – Cafe & Bar Nishi Asakusa Kuronekotei",
+    rd3:"Cafe retro plein du charme de l'ere Showa. Le 'pudding chat noir' est particulierement populaire.",
+    rn4:"🍜 Ramen – Fuji Ramen",
+    rd4:"Un ramen cosy avec environ 10 places au comptoir, servant des portions copieuses.",
+    rn5:"🥘 Sukiyaki – Asakusa Imaan (branche principale Kokusai-dori)",
+    rd5:"Un restaurant sukiyaki legendaire. La viande et les ingredients de haute qualite valent chaque yen.",
+    rn6:"🍳 Restaurant occidental – Mont Blanc",
+    rd6:"Un restaurant celebre frequente par les stars, avec des autographes partout. Celebre pour le steak hache et une large gamme de hors-d'oeuvre et boissons.",
+    rn7:"🍖 Katsudon – Katsuya",
+    rd7:"Une boutique decontractee pour un katsudon (bol de riz au cutlet) delicieux et abordable.",
+    rn8:"🥘 Monjayaki – Asakusa Monja Zenya",
+    rd8:"Restaurant monjayaki d'Asakusa de longue date (different du style Tsukishima). Bouillon savoureux, le personnel cuisine devant vous pour une experience conviviale."
+  },
+  es:{
+    pageTitle:"Tiendas cercanas",
+    backToMenu:"← Volver al menu",
+    nb0:"Kappabashi, famosa por sus utensilios de cocina y vajilla, esta a solo 1 minuto a pie. Hay muchas tiendas unicas para explorar. Si tiene tiempo libre el segundo dia, no deje de visitarla!",
+    restTitle:"Restaurantes recomendados",
+    restNote:"Algunos restaurantes pueden tener horarios distintos o estar temporalmente cerrados. Verifique antes de ir.",
+    rn0:"🍱 Menú japonés – Mizuguchi Shokudo",
+    rd0:"Restaurante tradicional tipo diner con una amplia variedad de teishoku (menús completos).",
+    rn1:"🍣 Sushi – Kura Sushi",
+    rd1:"Una de las populares cadenas de sushi en cinta transportadora de Japón. Esta es la tienda insignia con interior japonés tradicional.",
+    rn2:"🥖 Panadería – Pelican Bakery",
+    rd2:"Una de las panaderías más famosas de Asakusa, adorada por los locales y visitada por fans de lejos.",
+    rn3:"☕ Cafe – Cafe & Bar Nishi Asakusa Kuronekotei",
+    rd3:"Cafe de estilo retro lleno del encanto de la era Showa. El 'pudding gato negro' es especialmente popular.",
+    rn4:"🍜 Ramen – Fuji Ramen",
+    rd4:"Un acogedor restaurante de ramen con unas 10 plazas en barra, sirviendo porciones generosas.",
+    rn5:"🥘 Sukiyaki – Asakusa Imaan (sede Kokusai-dori)",
+    rd5:"Un legendario restaurante de sukiyaki. La carne e ingredientes de alta calidad valen la pena.",
+    rn6:"🍳 Restaurante occidental – Mont Blanc",
+    rd6:"Un famoso restaurante frecuentado por celebrities, con autografos en las paredes. Famoso por el filete de hamburguesa y variedad de aperitivos y bebidas.",
+    rn7:"🍖 Katsudon – Katsuya",
+    rd7:"Un local casual para disfrutar de un delicioso y asequible katsudon (cuenco de arroz con filete empanado).",
+    rn8:"🥘 Monjayaki – Asakusa Monja Zenya",
+    rd8:"Restaurante de monjayaki de larga trayectoria en Asakusa (diferente del estilo Tsukishima). Usa caldo sabroso, con el personal cocinando ante usted para una divertida experiencia en vivo."
+  }
+};
+function setLang(l,btn){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const t=S[l];if(!t)return;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(k in t)el.textContent=t[k];});}
+setLang('en',document.querySelector('.lang-btn.active'));
+</script>
+</body>
+</html>
