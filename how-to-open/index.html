@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Open — Cube Nishi Asakusa</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<style>
+  :root{--accent:#e65100;--accent-light:#ffcc80;--cream:#fff8f0;--text-dark:#3e1a00;--text-mid:#6d3a00;}
+  .lang-bar{display:flex;justify-content:center;gap:6px;padding:10px 16px;flex-wrap:wrap;background:var(--cream);}
+  .lang-btn{border:2px solid var(--accent-light);background:rgba(255,255,255,0.92);border-radius:50px;padding:4px 9px;font-family:'Nunito',sans-serif;font-size:0.72rem;font-weight:800;color:var(--text-mid);cursor:pointer;transition:all 0.2s;box-shadow:0 2px 8px rgba(60,40,0,0.12);}
+  .lang-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .lang-btn:hover:not(.active){border-color:var(--accent);color:var(--accent);}
+  .info-card{background:#fff;border-left:4px solid var(--accent);border-radius:12px;padding:16px 18px;margin:16px 0;box-shadow:0 2px 10px rgba(60,40,0,0.10);}
+  .info-card p{font-size:0.92rem;line-height:1.75;color:var(--text-mid);margin:0;}
+  .info-card p+p{margin-top:8px;}
+  .section-title{font-family:'Pacifico',cursive;font-size:1rem;color:var(--accent);margin-bottom:8px;}
+  .page-img{width:100%;border-radius:12px;margin:12px 0;box-shadow:0 2px 12px rgba(60,40,0,0.12);}
+  .notice-card{background:#fff;border:3px solid var(--accent);border-radius:16px;padding:28px 24px;text-align:center;box-shadow:0 4px 20px rgba(60,40,0,0.15);margin-bottom:24px;}
+  .notice-icon{font-size:3.5rem;margin-bottom:16px;display:block;}
+  .notice-title{font-family:'Pacifico',cursive;font-size:1.2rem;color:var(--accent);margin-bottom:16px;}
+  .notice-body{font-size:0.95rem;line-height:1.8;color:var(--text-mid);}
+  .notice-body strong{color:var(--accent);display:block;margin-top:12px;font-size:1rem;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Nunito',sans-serif;background:var(--cream);color:var(--text-dark);min-height:100vh;}
+  .lang-bar{display:flex;justify-content:center;gap:6px;padding:10px 16px;flex-wrap:wrap;background:var(--cream);}
+  .lang-btn{border:2px solid var(--accent-light);background:rgba(255,255,255,0.92);border-radius:50px;padding:4px 9px;font-family:'Nunito',sans-serif;font-size:0.72rem;font-weight:800;color:var(--text-mid);cursor:pointer;transition:all 0.2s;box-shadow:0 2px 8px rgba(60,40,0,0.12);}
+  .lang-btn.active{background:var(--accent);border-color:var(--accent);color:#fff;}
+  .lang-btn:hover:not(.active){border-color:var(--accent);color:var(--accent);}
+  .top-bar{background:linear-gradient(135deg,var(--accent) 0%,color-mix(in srgb,var(--accent) 70%,black) 100%);padding:16px 20px;display:flex;align-items:center;gap:14px;position:sticky;top:0;z-index:10;box-shadow:0 2px 12px rgba(0,0,0,0.15);}
+  .back-btn{background:rgba(255,255,255,0.25);border:none;border-radius:50%;width:38px;height:38px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;color:#fff;text-decoration:none;flex-shrink:0;transition:background 0.2s;}
+  .back-btn:hover{background:rgba(255,255,255,0.4);}
+  .top-title{font-family:'Pacifico',cursive;font-size:1.3rem;color:#fff;text-shadow:1px 2px 4px rgba(0,0,0,0.2);flex:1;}
+  .top-emoji{font-size:1.8rem;}
+  .content{padding:20px 16px 40px;max-width:640px;margin:0 auto;}
+  .notice-card{background:#fff;border:3px solid var(--accent);border-radius:16px;padding:28px 24px;text-align:center;box-shadow:0 4px 20px rgba(60,40,0,0.15);margin-bottom:24px;}
+  .notice-icon{font-size:3.5rem;margin-bottom:16px;display:block;}
+  .notice-title{font-family:'Pacifico',cursive;font-size:1.2rem;color:var(--accent);margin-bottom:16px;}
+  .notice-body{font-size:0.95rem;line-height:1.8;color:var(--text-mid);}
+  .notice-body strong{color:var(--accent);display:block;margin-top:12px;font-size:1rem;}
+  .back-footer{text-align:center;margin-top:28px;padding-bottom:20px;}
+  .back-footer a{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;padding:12px 28px;border-radius:50px;font-weight:800;font-size:0.9rem;transition:opacity 0.2s;}
+  .back-footer a:hover{opacity:0.8;}
+</style>
+</head>
+<body>
+<div class="lang-bar">
+  <button class="lang-btn active" onclick="setLang('en',this)">&#x1F1EC;&#x1F1E7; EN</button>
+  <button class="lang-btn" onclick="setLang('ja',this)">&#x1F1EF;&#x1F1F5; JA</button>
+  <button class="lang-btn" onclick="setLang('zh',this)">&#x1F1E8;&#x1F1F3; ZH</button>
+  <button class="lang-btn" onclick="setLang('ko',this)">&#x1F1F0;&#x1F1F7; KO</button>
+  <button class="lang-btn" onclick="setLang('fr',this)">&#x1F1EB;&#x1F1F7; FR</button>
+  <button class="lang-btn" onclick="setLang('es',this)">&#x1F1EA;&#x1F1F8; ES</button>
+</div>
+<div class="top-bar">
+  <a href="../" class="back-btn">&#x2190;</a>
+  <span class="top-emoji">&#x1F511;</span>
+  <div class="top-title" data-i18n="pageTitle">How to Open</div>
+</div>
+<div class="content">
+  <div class="notice-card">
+    <span class="notice-icon">&#x1F4CB;</span>
+    <div class="notice-title" data-i18n="cardTitle">Check-in Information</div>
+    <div class="notice-body">
+      <span data-i18n="cardBody">The check-in instructions including door codes and key box information will be sent to you after we receive your guest registration form.</span>
+      <strong data-i18n="cardSub">Please complete the registration form sent to you before your arrival 😊</strong>
+    </div>
+  </div>
+  <div class="back-footer">
+    <a href="../" data-i18n="backToMenu">&#x2190; Back to Menu</a>
+  </div>
+</div>
+<script>
+const S={
+  en:{pageTitle:"How to Open",cardTitle:"Check-in Information",cardBody:"The check-in instructions including door codes and key box information will be sent to you after we receive your guest registration form.",cardSub:"Please complete the registration form sent to you before your arrival 😊",backToMenu:"← Back to Menu"},
+  ja:{pageTitle:"入室方法",cardTitle:"チェックイン情報について",cardBody:"宿泊者名簿のご提出後に、ドアコードやキーボックスの情報を含むチェックイン案内をお送りさせていただいています。",cardSub:"ご到着前に、お送りした宿泊者名簿フォームのご記入をお願いいたします 😊",backToMenu:"← メニューに戻る"},
+  zh:{pageTitle:"入室方法",cardTitle:"入住信息",cardBody:"收到您提交的住客登记表后，我们将向您发送包含门锁密码和鑰匙箱信息在内的入住说明。",cardSub:"请在抵达前填写我们发送给您的住客登记表 😊",backToMenu:"← 返回菜单"},
+  ko:{pageTitle:"입실 방법",cardTitle:"체크인 안내",cardBody:"숙박자 명부를 제출해 주신 후, 도어 코드 및 키박스 정보를 포함한 체크인 안내를 보내드립니다.",cardSub:"도착 전에 보내드린 숙박자 등록 양식을 작성해 주세요 😊",backToMenu:"← 메뉴로 돌아가기"},
+  fr:{pageTitle:"Comment entrer",cardTitle:"Informations d'arrivée",cardBody:"Les instructions d'arrivée incluant le code de la porte et les informations du boîtier à clés vous seront envoyées après réception de votre formulaire d'enregistrement.",cardSub:"Veuillez remplir le formulaire d'enregistrement envoyé avant votre arrivée 😊",backToMenu:"← Retour au menu"},
+  es:{pageTitle:"Cómo entrar",cardTitle:"Información de entrada",cardBody:"Las instrucciones de entrada, incluyendo los códigos de la puerta y la caja de llaves, se le enviarán tras recibir su formulario de registro de huéspedes.",cardSub:"Por favor complete el formulario de registro enviado antes de su llegada 😊",backToMenu:"← Volver al menú"}
+};
+function setLang(l,btn){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const t=S[l];if(!t)return;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(k in t)el.textContent=t[k];});}
+setLang('en',document.querySelector('.lang-btn.active'));
+</script>
+</body>
+</html>
