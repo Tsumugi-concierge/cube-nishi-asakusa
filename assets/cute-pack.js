@@ -10,7 +10,7 @@
 
   var selectors = ['.pl-btn', '.wifi-card', '.wifi', '.chat-box'];
   if (!isEmergency) {
-    selectors = selectors.concat(['.info-card', '.notice-card', '.driver-card', '.app-card', '.rest-card', '.caption']);
+    selectors = selectors.concat(['.info-card', '.notice-card', '.driver-card', '.app-card', '.rest-card', '.caption', '.step-caption', '[data-content] > *']);
   }
 
   var io = new IntersectionObserver(function (entries) {

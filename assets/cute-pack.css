@@ -12,7 +12,8 @@
   .hero-house,
   .hero .mark,
   header.hero .mark,
-  body:not(.cp-emergency) .top-emoji {
+  body:not(.cp-emergency) .top-emoji,
+  body:not(.cp-emergency) .top h1 span[aria-hidden="true"] {
     display: inline-block;
     animation: cp-bob 3s ease-in-out infinite;
     will-change: transform;
@@ -113,6 +114,7 @@
 .em-btn,
 .lang-btn,
 .back-btn,
+.back,
 .back-footer a,
 .maps-btn,
 .map-link,
@@ -127,6 +129,7 @@
 .em-btn:active,
 .lang-btn:active,
 .back-btn:active,
+.back:active,
 .back-footer a:active,
 .maps-btn:active,
 .map-link:active,
@@ -137,6 +140,7 @@
 }
 
 .pl-btn:hover,
+.back:hover,
 .back-footer a:hover,
 .maps-btn:hover,
 .map-link:hover,
