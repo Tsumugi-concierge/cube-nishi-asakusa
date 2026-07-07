@@ -661,5 +661,94 @@
 
         applyTranslations('en');
     </script>
+<!-- ==== Cute Pack: 軽量アニメーション装飾 (~3KB, no deps) ==== -->
+<style id="cute-pack">
+@media (prefers-reduced-motion: no-preference) {
+  /* ヒーローの🏠がぷかぷか浮く */
+  .hero-house, .hero .mark, header.hero .mark { display: inline-block; animation: cp-bob 3s ease-in-out infinite; }
+  @keyframes cp-bob {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50%      { transform: translateY(-8px) rotate(2deg); }
+  }
+  /* メニューカードのアイコンが時間差で「ひょこっ」(4秒に1回) */
+  .pl-icon { display: inline-block; animation: cp-wiggle 4s ease-in-out infinite; }
+  .pl-btn:nth-child(2) .pl-icon { animation-delay: .6s; }
+  .pl-btn:nth-child(3) .pl-icon { animation-delay: 1.2s; }
+  .pl-btn:nth-child(4) .pl-icon { animation-delay: 1.8s; }
+  @keyframes cp-wiggle {
+    0%, 88%, 100% { transform: rotate(0); }
+    90% { transform: rotate(-8deg) scale(1.08); }
+    94% { transform: rotate(8deg)  scale(1.08); }
+    98% { transform: rotate(-4deg); }
+  }
+  /* Wi-Fiカードに5秒に1回、光が流れる */
+  .wifi-card, .wifi { position: relative; overflow: hidden; }
+  .wifi-card::after, .wifi::after {
+    content: ''; position: absolute; top: 0; left: -80%;
+    width: 50%; height: 100%;
+    background: linear-gradient(105deg, transparent, rgba(255,255,255,.35), transparent);
+    animation: cp-shine 5s ease-in-out infinite; pointer-events: none;
+  }
+  @keyframes cp-shine { 0%, 70% { left: -80%; } 85%, 100% { left: 130%; } }
+  /* スクロールで下から「ぽよん」と出現(JS側で .cp-reveal を付与) */
+  .cp-reveal {
+    opacity: 0; transform: translateY(14px) scale(.98);
+    transition: opacity .5s ease, transform .5s cubic-bezier(.34, 1.56, .64, 1);
+  }
+  .cp-reveal.cp-in { opacity: 1; transform: none; }
+  /* チャットの🤖がときどき小ジャンプ */
+  .chat-avatar { animation: cp-hop 6s ease-in-out infinite; }
+  @keyframes cp-hop {
+    0%, 92%, 100% { transform: translateY(0); }
+    94% { transform: translateY(-5px); }
+    97% { transform: translateY(0); }
+    98.5% { transform: translateY(-2px); }
+  }
+}
+/* タップで「ぷにっ」/ ホバーでふわっと浮く(全環境) */
+.pl-btn, .chip, .em-btn {
+  transition: transform .15s cubic-bezier(.34, 1.56, .64, 1), box-shadow .15s;
+}
+.pl-btn:active, .chip:active, .em-btn:active { transform: scale(.94); }
+.pl-btn:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 10px 24px rgba(220, 140, 90, .18);
+}
+/* アイコンをパステル丸チップに */
+.pl-icon-wrap {
+  background: linear-gradient(135deg, #fff3e8, #fdeef4) !important;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 3px #fff, 0 3px 8px rgba(120, 160, 220, .15);
+}
+/* 背景にうっすら水玉(CSSグラデーションのみ) */
+body {
+  background-image:
+    radial-gradient(rgba(140, 190, 240, .10) 2.5px, transparent 2.5px),
+    radial-gradient(rgba(255, 170, 200, .08) 2px,  transparent 2px);
+  background-size: 46px 46px, 62px 62px;
+  background-position: 0 0, 23px 31px;
+}
+/* セクション見出しに✦ */
+.menu-group-title::after {
+  content: ' ✦'; font-size: .7em; color: #ffb6d1; vertical-align: super;
+}
+</style>
+
+<script id="cute-pack-js">
+(function () {
+  if (!('IntersectionObserver' in window)) return; // 未対応環境では最初から表示
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        e.target.classList.add('cp-in');
+        io.unobserve(e.target); // 1回表示したら監視解除
+      }
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('.pl-btn, .wifi-card, .wifi, .chat-box, .emergency-strip')
+    .forEach(function (el) { el.classList.add('cp-reveal'); io.observe(el); });
+})();
+</script>
+<!-- ==== /Cute Pack ==== -->
 </body>
 </html>
