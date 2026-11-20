@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>For Taxi — Cube Nishi Asakusa</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/i18n.css">
 <style>
   :root {
     --accent: #be0032;
@@ -222,7 +223,7 @@
   <style id="cute-pack-theme">:root{--cp-chip-a:#fff3e8;--cp-chip-b:#fdeef4;--cp-hover-shadow:rgba(220,140,90,.18);--cp-dot-1:rgba(240,170,120,.10);}</style>
 </head>
 <body>
-<div class="lang-bar">
+<div class="lang-bar" role="toolbar" aria-label="Language">
   <button class="lang-btn active" onclick="setLang('en', this)">🇬🇧 EN</button>
   <button class="lang-btn" onclick="setLang('ja', this)">🇯🇵 JA</button>
   <button class="lang-btn" onclick="setLang('zh', this)">🇨🇳 ZH</button>
@@ -363,22 +364,9 @@ const STRINGS = {
     backToMenu: '← Volver al menú',
   },
 };
-
-function applyTranslations(lang) {
-  const t = STRINGS[lang];
-  if (!t) return;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (key in t) el.textContent = t[key];
-  });
-}
-function setLang(lang, btn) {
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  applyTranslations(lang);
-}
-applyTranslations('en');
+window.I18N_STRINGS = STRINGS;
 </script>
+<script src="../assets/i18n.js" defer></script>
   <script src="../assets/cute-pack.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,47 @@
+/* Shared i18n language switcher styles */
+:root {
+  --i18n-accent: rgba(230,81,0,0.35);
+  --i18n-active-bg: #be0032;
+  --i18n-active-color: #fff;
+}
+
+/* Support both .lang-switcher (nav) and .lang-bar (div) containers */
+.lang-switcher, .lang-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 10px 12px;
+  background: var(--cream, #fff6f7);
+}
+
+.lang-btn {
+  border: 1.5px solid var(--i18n-accent);
+  background: rgba(255,255,255,0.92);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 999px;
+  padding: 5px 10px;
+  font: 800 0.72rem/1.2 Nunito, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text-mid, #6b1f30);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(100,40,0,0.10);
+  letter-spacing: 0.02em;
+}
+
+.lang-btn:hover:not(.active), .lang-btn:focus-visible:not(.active) {
+  border-color: #be0032;
+  color: #be0032;
+  outline: none;
+}
+
+.lang-btn.active {
+  background: var(--i18n-active-bg);
+  border-color: var(--i18n-active-bg);
+  color: var(--i18n-active-color);
+  box-shadow: 0 4px 12px rgba(190,0,50,0.28);
+}

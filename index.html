@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/i18n.css">
     <style>
         :root {
             --cream: #fff6f7;
@@ -411,9 +412,9 @@
                     <div class="msg bot">Hi! &#x1F60A; Welcome to Cube Nishi Asakusa!<br>How can I help you today?</div>
                 </div>
                 <div class="quick-chips" id="quickChips" aria-label="Suggested questions">
-                    <button type="button" class="chip" data-chip="chipCheckin" onclick="askChip(this)">&#x1F550; Check-in time?</button>
-                    <button type="button" class="chip" data-chip="chipCheckout" onclick="askChip(this)">&#x1F554; Check-out time?</button>
-                    <button type="button" class="chip" data-chip="chipWifi" onclick="askChip(this)">&#x1F4F6; Wi-Fi?</button>
+                    <button type="button" class="chip" data-chip="chipCheckin" data-i18n="chipCheckin" onclick="askChip(this)">&#x1F550; Check-in time?</button>
+                    <button type="button" class="chip" data-chip="chipCheckout" data-i18n="chipCheckout" onclick="askChip(this)">&#x1F554; Check-out time?</button>
+                    <button type="button" class="chip" data-chip="chipWifi" data-i18n="chipWifi" onclick="askChip(this)">&#x1F4F6; Wi-Fi?</button>
                 </div>
                 <div class="chat-input-row">
                     <input type="text" class="chat-input" id="chatInput" placeholder="Type a question&#x2026;" aria-label="Type your question">
@@ -441,6 +442,7 @@
         <span id="toastText">Copied!</span>
     </div>
     <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@master/qrcode.min.js" defer></script>
+    <script src="assets/i18n.js" defer></script>
     <script>
         const CONFIG = {
             workerUrl: 'https://concierge.info-tsumugi4.workers.dev',
@@ -455,7 +457,6 @@
 
         const WIFI = { ssid: 'Cube Nishi Asakusa', password: 'hello.nishiasakusa', type: 'WPA' };
 
-        let currentLang = 'en';
         let history = [];
 
         const LANG_DATA = {
@@ -529,31 +530,18 @@
                 chipCheckin: '\uD83D\uDD50 \u00BFHora de entrada?', chipCheckout: '\uD83D\uDD54 \u00BFHora de salida?', chipWifi: '\uD83D\uDCF6 \u00BFWi-Fi?',
             },
         };
+        // Expose per-page translations to shared i18n
+        window.I18N_STRINGS = UI_STRINGS;
 
-        function applyTranslations(lang) {
-            const t = UI_STRINGS[lang];
-            if (!t) return;
-            document.querySelectorAll('[data-i18n]').forEach(el => {
-                const key = el.getAttribute('data-i18n');
-                if (key in t) el.textContent = t[key];
-            });
-            document.querySelectorAll('.chip').forEach(c => {
-                const key = c.getAttribute('data-chip');
-                if (key && key in t) c.textContent = t[key];
-            });
-        }
-
-        function setLang(lang, btn) {
-            currentLang = lang;
-            const d = LANG_DATA[lang];
-            document.getElementById('statusText').textContent  = d.status;
-            document.getElementById('chatInput').placeholder   = d.placeholder;
-            document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+        function syncLangUI(lang) {
+            const d = LANG_DATA[lang] || LANG_DATA.en;
+            const st = document.getElementById('statusText');
+            const ci = document.getElementById('chatInput');
+            if (st) st.textContent = d.status;
+            if (ci) ci.placeholder = d.placeholder;
             history = [];
-            document.getElementById('chatMsgs').innerHTML = `<div class="msg bot">${d.welcome}</div>`;
-            applyTranslations(lang);
-            document.documentElement.lang = lang;
+            const msgs = document.getElementById('chatMsgs');
+            if (msgs) msgs.innerHTML = `<div class="msg bot">${d.welcome}</div>`;
         }
 
         async function sendMessage(overrideText) {
@@ -575,7 +563,7 @@
                 const res = await fetch(CONFIG.workerUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ messages: history, lang: currentLang, sheetId: CONFIG.sheetId, gids: CONFIG.gids }),
+                    body: JSON.stringify({ messages: history, lang: (window.I18N && window.I18N.get()) || 'en', sheetId: CONFIG.sheetId, gids: CONFIG.gids }),
                 });
                 const data = await res.json();
                 if (!res.ok) { typing.remove(); addMsg(`Error ${res.status}: ${data.error?.message || 'Unknown error'}`, 'bot'); return; }
@@ -598,7 +586,8 @@
 
         function askChip(btn) {
             const key = btn.getAttribute('data-chip');
-            const q = LANG_DATA[currentLang]?.[key] || btn.textContent;
+            const lang = (window.I18N && window.I18N.get()) || 'en';
+            const q = LANG_DATA[lang]?.[key] || btn.textContent;
             sendMessage(q);
         }
 
@@ -612,7 +601,8 @@
             }
             btn.classList.add('copied');
             setTimeout(() => btn.classList.remove('copied'), 900);
-            showToast(LANG_DATA[currentLang]?.copied || 'Copied!');
+            const lang = (window.I18N && window.I18N.get()) || 'en';
+            showToast(LANG_DATA[lang]?.copied || 'Copied!');
         }
 
         function showToast(msg) {
@@ -662,7 +652,9 @@
             if (e.key === 'Enter' && !e.isComposing) sendMessage();
         });
 
-        applyTranslations('en');
+        // Initialize chat on language events
+        window.addEventListener('i18n:ready', (e) => syncLangUI(e.detail.lang));
+        window.addEventListener('i18n:changed', (e) => syncLangUI(e.detail.lang));
     </script>
   <script src="assets/cute-pack.js" defer></script>
 </body>
