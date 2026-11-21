@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>House Rules — Cube Nishi Asakusa</title>
+<title data-i18n="documentTitle">House Rules — Cube Nishi Asakusa</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/i18n.css">
 <style>
   :root{--accent:#8a7060;--accent-light:#d8c8b8;--cream:#fff6f7;--text-dark:#2c0010;--text-mid:#6b1f30;}
   .lang-bar{display:flex;justify-content:center;gap:6px;padding:10px 16px;flex-wrap:wrap;background:var(--cream);}
@@ -40,71 +41,119 @@
   <style id="cute-pack-theme">:root{--cp-chip-a:#fff3e8;--cp-chip-b:#fdeef4;--cp-hover-shadow:rgba(220,140,90,.18);--cp-dot-1:rgba(240,170,120,.10);}</style>
 </head>
 <body>
-<div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('en',this)">&#x1F1EC;&#x1F1E7; EN</button>
-  <button class="lang-btn" onclick="setLang('ja',this)">&#x1F1EF;&#x1F1F5; JA</button>
-  <button class="lang-btn" onclick="setLang('zh',this)">&#x1F1E8;&#x1F1F3; ZH</button>
-  <button class="lang-btn" onclick="setLang('ko',this)">&#x1F1F0;&#x1F1F7; KO</button>
-  <button class="lang-btn" onclick="setLang('fr',this)">&#x1F1EB;&#x1F1F7; FR</button>
-  <button class="lang-btn" onclick="setLang('es',this)">&#x1F1EA;&#x1F1F8; ES</button>
+<div class="lang-bar" role="toolbar" data-i18n-aria-label="languageLabel" aria-label="Language">
+  <button class="lang-btn active" data-lang="en" onclick="setLang('en',this)">&#x1F1EC;&#x1F1E7; EN</button>
+  <button class="lang-btn" data-lang="ja" onclick="setLang('ja',this)">&#x1F1EF;&#x1F1F5; JA</button>
+  <button class="lang-btn" data-lang="zh" onclick="setLang('zh',this)">&#x1F1E8;&#x1F1F3; ZH</button>
+  <button class="lang-btn" data-lang="ko" onclick="setLang('ko',this)">&#x1F1F0;&#x1F1F7; KO</button>
+  <button class="lang-btn" data-lang="fr" onclick="setLang('fr',this)">&#x1F1EB;&#x1F1F7; FR</button>
+  <button class="lang-btn" data-lang="es" onclick="setLang('es',this)">&#x1F1EA;&#x1F1F8; ES</button>
 </div>
 <div class="top-bar">
-  <a href="../" class="back-btn">&#x2190;</a>
+  <a href="../" class="back-btn" data-i18n-aria-label="backLabel" aria-label="Back to menu">&#x2190;</a>
   <span class="top-emoji">📋</span>
-  <div class="top-title" data-i18n="pageTitle">House Rules</div>
+  <div class="top-title" data-i18n-group="pageTitle"><span class="lang lang-en" lang="en">House Rules</span><span class="lang lang-ja" lang="ja" hidden>ハウスルール</span><span class="lang lang-zh" lang="zh-Hans" hidden>入住规则</span><span class="lang lang-ko" lang="ko" hidden>하우스 규정</span><span class="lang lang-fr" lang="fr" hidden>Règlement intérieur</span><span class="lang lang-es" lang="es" hidden>Normas de la casa</span></div>
 </div>
 <div class="content">
   <div class="info-card">
-    <p data-i18n="hr1"></p><p data-i18n="hr2"></p>
-    <p data-i18n="hr3"></p><p data-i18n="hr4"></p>
-    <p data-i18n="hr5"></p>
+    <p data-i18n-group="hr1"><span class="lang lang-en" lang="en">Check-in: 16:00 / Check-out: 10:00. Late check-out without notice may incur an extra cleaning fee.</span><span class="lang lang-ja" lang="ja" hidden>チェックイン：16:00 / チェックアウト：10:00。事前連絡なしの遅延退室は清掃追加料金が発生する場合があります。</span><span class="lang lang-zh" lang="zh-Hans" hidden>入住时间：16:00 / 退房时间：10:00。如未提前通知延迟退房，可能产生额外清洁费用。</span><span class="lang lang-ko" lang="ko" hidden>체크인: 16:00 / 체크아웃: 10:00. 사전 연락 없이 늦게 체크아웃하면 추가 청소 비용이 발생할 수 있습니다.</span><span class="lang lang-fr" lang="fr" hidden>Arrivée : 16h00 / Départ : 10h00. Un départ tardif sans préavis peut entraîner des frais supplémentaires.</span><span class="lang lang-es" lang="es" hidden>Entrada: 16:00 / Salida: 10:00. Una salida tardía sin aviso puede generar cargos adicionales de limpieza.</span></p><p data-i18n-group="hr2"><span class="lang lang-en" lang="en">Quiet hours: 22:00–08:00. Please take off your shoes at the entrance.</span><span class="lang lang-ja" lang="ja" hidden>静粛時間：22:00〜08:00。玄関で靴をお脱ぎください。</span><span class="lang lang-zh" lang="zh-Hans" hidden>安静时间：22:00–08:00。入门请脱鞋。</span><span class="lang lang-ko" lang="ko" hidden>조용 시간: 22:00–08:00. 입구에서 신발을 벗어주세요.</span><span class="lang lang-fr" lang="fr" hidden>Heures calmes : 22h00–08h00. Veuillez enlever vos chaussures à l&#x27;entrée.</span><span class="lang lang-es" lang="es" hidden>Horas tranquilas: 22:00–08:00. Quítese los zapatos en la entrada.</span></p>
+    <p data-i18n-group="hr3"><span class="lang lang-en" lang="en">Smoking is strictly prohibited throughout the property, including all balconies. Please see the Smoking Rules page for details.</span><span class="lang lang-ja" lang="ja" hidden>室内・すべてのバルコニーを含め、全面禁煙です。詳細は喫煙ルールのページをご覧ください。</span><span class="lang lang-zh" lang="zh-Hans" hidden>整个住宿场所全面禁烟，包括室内及所有阳台。详细说明请查看吸烟规则页面。</span><span class="lang lang-ko" lang="ko" hidden>실내와 모든 발코니를 포함한 숙소 전체가 금연 구역입니다. 자세한 내용은 흡연 규정 페이지를 참고하세요.</span><span class="lang lang-fr" lang="fr" hidden>Il est strictement interdit de fumer dans tout l&#x27;hébergement, y compris sur tous les balcons. Voir la page Règles fumeur pour les détails.</span><span class="lang lang-es" lang="es" hidden>Está estrictamente prohibido fumar en todo el alojamiento, incluidos todos los balcones. Consulte la página de normas para fumadores.</span></p><p data-i18n-group="hr4"><span class="lang lang-en" lang="en">Lock the door when sleeping or going out. Turn off all lights and A/C when you leave.</span><span class="lang lang-ja" lang="ja" hidden>就寝時・外出時はドアを施錠。外出時は照明・エアコンを必ずお切りください。</span><span class="lang lang-zh" lang="zh-Hans" hidden>入睡或外出时请锁门。离开时请关闭所有灯光和空调。</span><span class="lang lang-ko" lang="ko" hidden>잠자거나 외출 시 문을 잠그세요. 외출 시 조명과 에어컨을 끄세요.</span><span class="lang lang-fr" lang="fr" hidden>Fermez à clé en dormant ou en sortant. Éteignez lumières et climatisation en partant.</span><span class="lang lang-es" lang="es" hidden>Cierre con llave al dormir o salir. Apague las luces y el aire acondicionado al irse.</span></p>
+    <p data-i18n-group="hr5"><span class="lang lang-en" lang="en">If you lose or fail to return the key, a 20,000 yen charge applies. Damaged or severely soiled items may also be charged.</span><span class="lang lang-ja" lang="ja" hidden>鍵の紛失・未返却の場合は20,000円の費用が発生します。備品の損傷・著しい汚れも請求する場合があります。</span><span class="lang lang-zh" lang="zh-Hans" hidden>如果丢失或未归还钥匙，将收取20,000日元费用。备品损坏或严重弄脏也可能收费。</span><span class="lang lang-ko" lang="ko" hidden>열쇠 분실이나 반납 실패 시 20,000엔 비용이 발생합니다. 비품 손상이나 심한 오염 시도 청구될 수 있습니다.</span><span class="lang lang-fr" lang="fr" hidden>Perte ou non-restitution de la clé : 20 000 yens. Les objets endommagés ou très salis pourront être facturés.</span><span class="lang lang-es" lang="es" hidden>Pérdida o no devolución de la llave: 20.000 yenes. Los artículos dañados o muy sucios también podrán facturarse.</span></p>
   </div>
   <div class="back-footer">
-    <a href="../" data-i18n="backToMenu">&#x2190; Back to Menu</a>
+    <a href="../" data-i18n-group="backToMenu"><span class="lang lang-en" lang="en">← Back to Menu</span><span class="lang lang-ja" lang="ja" hidden>← メニューに戻る</span><span class="lang lang-zh" lang="zh-Hans" hidden>← 返回菜单</span><span class="lang lang-ko" lang="ko" hidden>← 메뉴로 돌아가기</span><span class="lang lang-fr" lang="fr" hidden>← Retour au menu</span><span class="lang lang-es" lang="es" hidden>← Volver al menú</span></a>
   </div>
 </div>
 <script>
-const S={
-  en:{pageTitle:"House Rules",backToMenu:"← Back to Menu",
-    hr1:"Check-in: 16:00 / Check-out: 10:00. Late check-out without notice may incur an extra cleaning fee.",
-    hr2:"Quiet hours: 22:00–08:00. Please take off your shoes at the entrance.",
-    hr3:"Smoking is strictly prohibited throughout the property, including all balconies. Please see the Smoking Rules page for details.",
-    hr4:"Lock the door when sleeping or going out. Turn off all lights and A/C when you leave.",
-    hr5:"If you lose or fail to return the key, a 20,000 yen charge applies. Damaged or severely soiled items may also be charged."},
-  ja:{pageTitle:"ハウスルール",backToMenu:"← メニューに戻る",
-    hr1:"チェックイン：16:00 / チェックアウト：10:00。事前連絡なしの遅延退室は清掃追加料金が発生する場合があります。",
-    hr2:"静粛時間：22:00〜08:00。玄関で靴をお脱ぎください。",
-    hr3:"室内・すべてのバルコニーを含め、全面禁煙です。詳細は喫煙ルールのページをご覧ください。",
-    hr4:"就寝時・外出時はドアを施錠。外出時は照明・エアコンを必ずお切りください。",
-    hr5:"鍵の紛失・未返却の場合は20,000円の費用が発生します。備品の損傷・著しい汚れも請求する場合があります。"},
-  zh:{pageTitle:"入住规则",backToMenu:"← 返回菜单",
-    hr1:"入住时间：16:00 / 退房时间：10:00。如未提前通知延迟退房，可能产生额外清洁费用。",
-    hr2:"安静时间：22:00–08:00。入门请脱鞋。",
-    hr3:"整个住宿场所全面禁烟，包括室内及所有阳台。详细说明请查看吸烟规则页面。",
-    hr4:"入睡或外出时请锁门。离开时请关闭所有灯光和空调。",
-    hr5:"如果丢失或未归还钥匙，将收取20,000日圆费用。备品损坏或严重弄脏也可能收费。"},
-  ko:{pageTitle:"하우스 규정",backToMenu:"← 메뉴로 돌아가기",
-    hr1:"체크인: 16:00 / 체크아웃: 10:00. 사전 연락 없이 늦게 체크아웃하면 추가 청소 비용이 발생할 수 있습니다.",
-    hr2:"조용 시간: 22:00–08:00. 입구에서 신발을 벗어주세요.",
-    hr3:"실내와 모든 발코니를 포함한 숙소 전체가 금연 구역입니다. 자세한 내용은 흡연 규정 페이지를 참고하세요.",
-    hr4:"잠자거나 외출 시 문을 잠그세요. 외출 시 조명과 에어컨을 끄세요.",
-    hr5:"열쇠 분실이나 반납 실패 시 20,000엔 비용이 발생합니다. 비품 손상이나 심한 오염 시도 청구될 수 있습니다."},
-  fr:{pageTitle:"Règlement intérieur",backToMenu:"← Retour au menu",
-    hr1:"Arrivée : 16h00 / Départ : 10h00. Un départ tardif sans préavis peut entraîner des frais supplémentaires.",
-    hr2:"Heures calmes : 22h00–08h00. Veuillez enlever vos chaussures à l'entrée.",
-    hr3:"Il est strictement interdit de fumer dans tout l'hébergement, y compris sur tous les balcons. Voir la page Règles fumeur pour les détails.",
-    hr4:"Fermez à clé en dormant ou en sortant. Éteignez lumières et climatisation en partant.",
-    hr5:"Perte ou non-restitution de la clé : 20 000 yens. Les objets endommagés ou très salis pourront être facturés."},
-  es:{pageTitle:"Normas de la casa",backToMenu:"← Volver al menú",
-    hr1:"Entrada: 16:00 / Salida: 10:00. Una salida tardía sin aviso puede generar cargos adicionales de limpieza.",
-    hr2:"Horas tranquilas: 22:00–08:00. Quítese los zapatos en la entrada.",
-    hr3:"Está estrictamente prohibido fumar en todo el alojamiento, incluidos todos los balcones. Consulte la página de normas para fumadores.",
-    hr4:"Cierre con llave al dormir o salir. Apague las luces y el aire acondicionado al irse.",
-    hr5:"Pérdida o no devolución de la llave: 20.000 yenes. Los artículos dañados o muy sucios también podrán facturarse."}
+const S = {
+  "en": {
+    "pageTitle": "House Rules",
+    "backToMenu": "← Back to Menu",
+    "hr1": "Check-in: 16:00 / Check-out: 10:00. Late check-out without notice may incur an extra cleaning fee.",
+    "hr2": "Quiet hours: 22:00–08:00. Please take off your shoes at the entrance.",
+    "hr3": "Smoking is strictly prohibited throughout the property, including all balconies. Please see the Smoking Rules page for details.",
+    "hr4": "Lock the door when sleeping or going out. Turn off all lights and A/C when you leave.",
+    "hr5": "If you lose or fail to return the key, a 20,000 yen charge applies. Damaged or severely soiled items may also be charged.",
+    "languageLabel": "Language",
+    "backLabel": "Back to menu",
+    "mapsBtn": "📍 Google Maps",
+    "imageAlt": "Illustrated guide (English); translated instructions follow.",
+    "documentTitle": "House Rules — Cube Nishi Asakusa"
+  },
+  "ja": {
+    "pageTitle": "ハウスルール",
+    "backToMenu": "← メニューに戻る",
+    "hr1": "チェックイン：16:00 / チェックアウト：10:00。事前連絡なしの遅延退室は清掃追加料金が発生する場合があります。",
+    "hr2": "静粛時間：22:00〜08:00。玄関で靴をお脱ぎください。",
+    "hr3": "室内・すべてのバルコニーを含め、全面禁煙です。詳細は喫煙ルールのページをご覧ください。",
+    "hr4": "就寝時・外出時はドアを施錠。外出時は照明・エアコンを必ずお切りください。",
+    "hr5": "鍵の紛失・未返却の場合は20,000円の費用が発生します。備品の損傷・著しい汚れも請求する場合があります。",
+    "languageLabel": "言語",
+    "backLabel": "メニューに戻る",
+    "mapsBtn": "📍 Google マップ",
+    "imageAlt": "図解（英語）。翻訳した説明は画像の後にあります。",
+    "documentTitle": "ハウスルール — Cube Nishi Asakusa"
+  },
+  "zh": {
+    "pageTitle": "入住规则",
+    "backToMenu": "← 返回菜单",
+    "hr1": "入住时间：16:00 / 退房时间：10:00。如未提前通知延迟退房，可能产生额外清洁费用。",
+    "hr2": "安静时间：22:00–08:00。入门请脱鞋。",
+    "hr3": "整个住宿场所全面禁烟，包括室内及所有阳台。详细说明请查看吸烟规则页面。",
+    "hr4": "入睡或外出时请锁门。离开时请关闭所有灯光和空调。",
+    "hr5": "如果丢失或未归还钥匙，将收取20,000日元费用。备品损坏或严重弄脏也可能收费。",
+    "languageLabel": "语言",
+    "backLabel": "返回菜单",
+    "mapsBtn": "📍 Google 地图",
+    "imageAlt": "英文图解，译文请见图片下方。",
+    "documentTitle": "入住规则 — Cube Nishi Asakusa"
+  },
+  "ko": {
+    "pageTitle": "하우스 규정",
+    "backToMenu": "← 메뉴로 돌아가기",
+    "hr1": "체크인: 16:00 / 체크아웃: 10:00. 사전 연락 없이 늦게 체크아웃하면 추가 청소 비용이 발생할 수 있습니다.",
+    "hr2": "조용 시간: 22:00–08:00. 입구에서 신발을 벗어주세요.",
+    "hr3": "실내와 모든 발코니를 포함한 숙소 전체가 금연 구역입니다. 자세한 내용은 흡연 규정 페이지를 참고하세요.",
+    "hr4": "잠자거나 외출 시 문을 잠그세요. 외출 시 조명과 에어컨을 끄세요.",
+    "hr5": "열쇠 분실이나 반납 실패 시 20,000엔 비용이 발생합니다. 비품 손상이나 심한 오염 시도 청구될 수 있습니다.",
+    "languageLabel": "언어",
+    "backLabel": "메뉴로 돌아가기",
+    "mapsBtn": "📍 Google 지도",
+    "imageAlt": "영어 그림 안내. 번역된 설명은 이미지 아래에 있습니다.",
+    "documentTitle": "하우스 규정 — Cube Nishi Asakusa"
+  },
+  "fr": {
+    "pageTitle": "Règlement intérieur",
+    "backToMenu": "← Retour au menu",
+    "hr1": "Arrivée : 16h00 / Départ : 10h00. Un départ tardif sans préavis peut entraîner des frais supplémentaires.",
+    "hr2": "Heures calmes : 22h00–08h00. Veuillez enlever vos chaussures à l'entrée.",
+    "hr3": "Il est strictement interdit de fumer dans tout l'hébergement, y compris sur tous les balcons. Voir la page Règles fumeur pour les détails.",
+    "hr4": "Fermez à clé en dormant ou en sortant. Éteignez lumières et climatisation en partant.",
+    "hr5": "Perte ou non-restitution de la clé : 20 000 yens. Les objets endommagés ou très salis pourront être facturés.",
+    "languageLabel": "Langue",
+    "backLabel": "Retour au menu",
+    "mapsBtn": "📍 Google Maps",
+    "imageAlt": "Guide illustré en anglais ; traduction sous les images.",
+    "documentTitle": "Règlement intérieur — Cube Nishi Asakusa"
+  },
+  "es": {
+    "pageTitle": "Normas de la casa",
+    "backToMenu": "← Volver al menú",
+    "hr1": "Entrada: 16:00 / Salida: 10:00. Una salida tardía sin aviso puede generar cargos adicionales de limpieza.",
+    "hr2": "Horas tranquilas: 22:00–08:00. Quítese los zapatos en la entrada.",
+    "hr3": "Está estrictamente prohibido fumar en todo el alojamiento, incluidos todos los balcones. Consulte la página de normas para fumadores.",
+    "hr4": "Cierre con llave al dormir o salir. Apague las luces y el aire acondicionado al irse.",
+    "hr5": "Pérdida o no devolución de la llave: 20.000 yenes. Los artículos dañados o muy sucios también podrán facturarse.",
+    "languageLabel": "Idioma",
+    "backLabel": "Volver al menú",
+    "mapsBtn": "📍 Google Maps",
+    "imageAlt": "Guía ilustrada en inglés; traducción debajo de las imágenes.",
+    "documentTitle": "Normas de la casa — Cube Nishi Asakusa"
+  }
 };
-function setLang(l,btn){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const t=S[l];if(!t)return;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(k in t)el.textContent=t[k];});}
-setLang('en',document.querySelector('.lang-btn.active'));
+window.I18N_STRINGS = S;
 </script>
+<script src="../assets/i18n.js" defer></script>
   <script src="../assets/cute-pack.js" defer></script>
 </body>
 </html>

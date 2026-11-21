@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Taxi — Cube Nishi Asakusa</title>
+<title data-i18n="documentTitle">For Taxi — Cube Nishi Asakusa</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/i18n.css">
 <style>
   :root {
     --accent: #be0032;
@@ -222,31 +223,31 @@
   <style id="cute-pack-theme">:root{--cp-chip-a:#fff3e8;--cp-chip-b:#fdeef4;--cp-hover-shadow:rgba(220,140,90,.18);--cp-dot-1:rgba(240,170,120,.10);}</style>
 </head>
 <body>
-<div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('en', this)">🇬🇧 EN</button>
-  <button class="lang-btn" onclick="setLang('ja', this)">🇯🇵 JA</button>
-  <button class="lang-btn" onclick="setLang('zh', this)">🇨🇳 ZH</button>
-  <button class="lang-btn" onclick="setLang('ko', this)">🇰🇷 KO</button>
-  <button class="lang-btn" onclick="setLang('fr', this)">🇫🇷 FR</button>
-  <button class="lang-btn" onclick="setLang('es', this)">🇪🇸 ES</button>
+<div class="lang-bar" role="toolbar" data-i18n-aria-label="languageLabel" aria-label="Language">
+  <button class="lang-btn active" data-lang="en" onclick="setLang('en', this)">🇬🇧 EN</button>
+  <button class="lang-btn" data-lang="ja" onclick="setLang('ja', this)">🇯🇵 JA</button>
+  <button class="lang-btn" data-lang="zh" onclick="setLang('zh', this)">🇨🇳 ZH</button>
+  <button class="lang-btn" data-lang="ko" onclick="setLang('ko', this)">🇰🇷 KO</button>
+  <button class="lang-btn" data-lang="fr" onclick="setLang('fr', this)">🇫🇷 FR</button>
+  <button class="lang-btn" data-lang="es" onclick="setLang('es', this)">🇪🇸 ES</button>
 </div>
 <div class="top-bar">
-  <a href="../" class="back-btn">←</a>
+  <a href="../" class="back-btn" data-i18n-aria-label="backLabel" aria-label="Back to menu">←</a>
   <span class="top-emoji">🚕</span>
-  <div class="top-title" data-i18n="pageTitle">For Taxi</div>
+  <div class="top-title" data-i18n-group="pageTitle"><span class="lang lang-en" lang="en">For Taxi</span><span class="lang lang-ja" lang="ja" hidden>タクシー利用案内</span><span class="lang lang-zh" lang="zh-Hans" hidden>出租车指南</span><span class="lang lang-ko" lang="ko" hidden>택시 안내</span><span class="lang lang-fr" lang="fr" hidden>Guide Taxi</span><span class="lang lang-es" lang="es" hidden>Guía de Taxi</span></div>
 </div>
 
 <div class="content">
 
   <!-- Note to guest -->
   <div class="note-box">
-    <strong data-i18n="noteTitle">📢 Note</strong>
-    <span data-i18n="noteBody">Japanese taxi drivers do not speak English. Please show the card below to your driver when getting in the taxi.</span>
+    <strong data-i18n-group="noteTitle"><span class="lang lang-en" lang="en">📢 Note</span><span class="lang lang-ja" lang="ja" hidden>📢 ご案内</span><span class="lang lang-zh" lang="zh-Hans" hidden>📢 提示</span><span class="lang lang-ko" lang="ko" hidden>📢 안내</span><span class="lang lang-fr" lang="fr" hidden>📢 Note</span><span class="lang lang-es" lang="es" hidden>📢 Nota</span></strong>
+    <span data-i18n-group="noteBody"><span class="lang lang-en" lang="en">Japanese taxi drivers do not speak English. Please show the card below to your driver when getting in the taxi.</span><span class="lang lang-ja" lang="ja" hidden>日本のタクシー運転手は英語を話しません。乗車時に以下のカードを運転手にお見せください。</span><span class="lang lang-zh" lang="zh-Hans" hidden>日本出租车司机不会说英语。上车时请将以下卡片出示给司机。</span><span class="lang lang-ko" lang="ko" hidden>일본 택시 기사는 영어를 하지 못합니다. 승차 시 아래 카드를 기사에게 보여주세요.</span><span class="lang lang-fr" lang="fr" hidden>Les chauffeurs de taxi japonais ne parlent pas anglais. Montrez la carte ci-dessous à votre chauffeur en montant dans le taxi.</span><span class="lang lang-es" lang="es" hidden>Los taxistas japoneses no hablan inglés. Muestre la tarjeta de abajo a su conductor al subir al taxi.</span></span>
   </div>
 
   <!-- Driver card (日本語固定 — 運転手に見せる用) -->
-  <div class="driver-card">
-    <div class="driver-label">🚕 以下を運転手の方にお見せください</div>
+  <div class="driver-card" lang="ja">
+    <div class="driver-label" data-i18n-group="driverPrompt"><span class="lang lang-en" lang="en">🚕 Show the following to your driver</span><span class="lang lang-ja" lang="ja" hidden>🚕 以下を運転手の方にお見せください</span><span class="lang lang-zh" lang="zh-Hans" hidden>🚕 请将以下内容出示给司机</span><span class="lang lang-ko" lang="ko" hidden>🚕 아래 내용을 기사에게 보여주세요</span><span class="lang lang-fr" lang="fr" hidden>🚕 Montrez ceci à votre chauffeur</span><span class="lang lang-es" lang="es" hidden>🚕 Muestre lo siguiente a su conductor</span></div>
     <span class="arrow-down">↓↓↓</span>
     <div class="destination">
       <span class="address-label">目的地</span>
@@ -254,131 +255,152 @@
       東京都台東区西浅草2-8-2<br>
       Cube Nishi Asakusa
     </div>
-    <a class="map-link" href="https://maps.google.com/?q=東京都台東区西浅草2-8-2+Cube+Nishi+Asakusa" target="_blank">
-      🗺 Google Maps
-    </a>
+    <a class="map-link" href="https://maps.google.com/?q=東京都台東区西浅草2-8-2+Cube+Nishi+Asakusa" target="_blank"><span class="lang lang-en" lang="en">📍 Google Maps</span><span class="lang lang-ja" lang="ja" hidden>📍 Google マップ</span><span class="lang lang-zh" lang="zh-Hans" hidden>📍 Google 地图</span><span class="lang lang-ko" lang="ko" hidden>📍 Google 지도</span><span class="lang lang-fr" lang="fr" hidden>📍 Google Maps</span><span class="lang lang-es" lang="es" hidden>📍 Google Maps</span></a>
   </div>
 
   <!-- Taxi apps -->
-  <div class="section-heading" data-i18n="appsTitle">📱 Taxi Apps in Japan</div>
+  <div class="section-heading" data-i18n-group="appsTitle"><span class="lang lang-en" lang="en">📱 Taxi Apps in Japan</span><span class="lang lang-ja" lang="ja" hidden>📱 タクシーアプリ</span><span class="lang lang-zh" lang="zh-Hans" hidden>📱 日本打车应用</span><span class="lang lang-ko" lang="ko" hidden>📱 일본 택시 앱</span><span class="lang lang-fr" lang="fr" hidden>📱 Applications de taxi au Japon</span><span class="lang lang-es" lang="es" hidden>📱 Apps de taxi en Japón</span></div>
 
   <div class="app-card">
-    <div class="app-name">🟡 GO タクシー <span class="app-tag" data-i18n="jaOnly">JA only</span></div>
-    <div class="app-body" data-i18n="goBody">Available across all 47 prefectures in Japan. Easily book by specifying pick-up and drop-off on the map. Supports credit card pre-payment and in-app receipts. Note: the app interface is in Japanese only — a translation app may help.</div>
+    <div class="app-name">🟡 GO タクシー <span class="app-tag" data-i18n-group="jaOnly"><span class="lang lang-en" lang="en">JA only</span><span class="lang lang-ja" lang="ja" hidden>日本語のみ</span><span class="lang lang-zh" lang="zh-Hans" hidden>仅日语</span><span class="lang lang-ko" lang="ko" hidden>일본어 전용</span><span class="lang lang-fr" lang="fr" hidden>JA uniquement</span><span class="lang lang-es" lang="es" hidden>Solo JA</span></span></div>
+    <div class="app-body" data-i18n-group="goBody"><span class="lang lang-en" lang="en">Available across all 47 prefectures in Japan. Easily book by specifying pick-up and drop-off on the map. Supports credit card pre-payment and in-app receipts. Note: the app interface is in Japanese only — a translation app may help.</span><span class="lang lang-ja" lang="ja" hidden>全国47都道府県で利用可能。地図上で乗降場所を指定して簡単予約。クレジットカード事前決済・アプリ内領収書に対応しています。</span><span class="lang lang-zh" lang="zh-Hans" hidden>覆盖日本全部47个都道府县。在地图上指定上下车地点即可轻松预约。支持信用卡预付款和应用内收据。注意：界面仅有日语，可能需要翻译软件辅助。</span><span class="lang lang-ko" lang="ko" hidden>일본 전국 47개 도도부현에서 이용 가능. 지도에서 승하차 위치를 지정해 간편 예약. 신용카드 선결제 및 앱 내 영수증 지원. 앱 인터페이스는 일본어 전용.</span><span class="lang lang-fr" lang="fr" hidden>Disponible dans les 47 préfectures du Japon. Réservez facilement en indiquant les points de prise en charge et de dépose sur la carte. Paiement par carte bancaire disponible. Interface en japonais uniquement.</span><span class="lang lang-es" lang="es" hidden>Disponible en las 47 prefecturas de Japón. Reserve fácilmente especificando los puntos de recogida y destino en el mapa. Acepta pago con tarjeta de crédito. Interfaz solo en japonés.</span></div>
   </div>
 
   <div class="app-card">
-    <div class="app-name">🚐 NearMe Airport <span class="app-tag" data-i18n="enSupport">EN support</span></div>
-    <div class="app-body" data-i18n="nearmeBody">Shared rides from your location to major airports — no fixed stops or schedules. Split costs with other passengers. Free cancellation up to 48 hours before departure. Credit card payment only.</div>
+    <div class="app-name">🚐 NearMe Airport <span class="app-tag" data-i18n-group="enSupport"><span class="lang lang-en" lang="en">EN support</span><span class="lang lang-ja" lang="ja" hidden>英語対応</span><span class="lang lang-zh" lang="zh-Hans" hidden>支持英语</span><span class="lang lang-ko" lang="ko" hidden>영어 지원</span><span class="lang lang-fr" lang="fr" hidden>Support EN</span><span class="lang lang-es" lang="es" hidden>Soporte EN</span></span></div>
+    <div class="app-body" data-i18n-group="nearmeBody"><span class="lang lang-en" lang="en">Shared rides from your location to major airports — no fixed stops or schedules. Split costs with other passengers. Free cancellation up to 48 hours before departure. Credit card payment only.</span><span class="lang lang-ja" lang="ja" hidden>指定場所から主要空港まで乗合タクシー。乗合で料金を分担。出発48時間前まで無料キャンセル可。クレジットカード払いのみ。</span><span class="lang lang-zh" lang="zh-Hans" hidden>从指定地点到主要机场的拼车服务，无需等待固定班次。可与其他乘客分摊费用。出发48小时前可免费取消。仅支持信用卡付款。</span><span class="lang lang-ko" lang="ko" hidden>지정 장소에서 주요 공항까지 합승 서비스. 다른 승객과 요금 분담 가능. 출발 48시간 전까지 무료 취소. 신용카드 결제만 가능.</span><span class="lang lang-fr" lang="fr" hidden>Trajets partagés depuis votre emplacement vers les grands aéroports. Partagez les frais avec d&#x27;autres passagers. Annulation gratuite jusqu&#x27;à 48h avant le départ. Paiement par carte uniquement.</span><span class="lang lang-es" lang="es" hidden>Viajes compartidos desde su ubicación a los principales aeropuertos. Comparta el coste con otros pasajeros. Cancelación gratuita hasta 48 horas antes. Solo pago con tarjeta.</span></div>
   </div>
 
   <div class="app-card">
-    <div class="app-name">⚫ Uber <span class="app-tag" data-i18n="enSupport2">EN support</span></div>
-    <div class="app-body" data-i18n="uberBody">Available in Tokyo, Yokohama, Osaka, Kyoto, Nagoya, and more. Download the app, register your account and credit card, then input your destination. The app matches you with nearby taxis and shows their location on the map.</div>
+    <div class="app-name">⚫ Uber <span class="app-tag" data-i18n-group="enSupport2"><span class="lang lang-en" lang="en">EN support</span><span class="lang lang-ja" lang="ja" hidden>英語対応</span><span class="lang lang-zh" lang="zh-Hans" hidden>支持英语</span><span class="lang lang-ko" lang="ko" hidden>영어 지원</span><span class="lang lang-fr" lang="fr" hidden>Support EN</span><span class="lang lang-es" lang="es" hidden>Soporte EN</span></span></div>
+    <div class="app-body" data-i18n-group="uberBody"><span class="lang lang-en" lang="en">Available in Tokyo, Yokohama, Osaka, Kyoto, Nagoya, and more. Download the app, register your account and credit card, then input your destination. The app matches you with nearby taxis and shows their location on the map.</span><span class="lang lang-ja" lang="ja" hidden>東京・横浜・大阪・京都・名古屋などで利用可能。アプリをダウンロードしてアカウントを作成し、目的地を入力するだけ。近くのタクシーとマッチングされます。</span><span class="lang lang-zh" lang="zh-Hans" hidden>可在东京、横滨、大阪、京都、名古屋等城市使用。下载应用并注册账户和信用卡信息，输入目的地，应用将为您匹配附近的出租车。</span><span class="lang lang-ko" lang="ko" hidden>도쿄, 요코하마, 오사카, 교토, 나고야 등에서 이용 가능. 앱을 다운로드하고 계정 및 신용카드를 등록한 후 목적지를 입력하면 근처 택시와 연결됩니다.</span><span class="lang lang-fr" lang="fr" hidden>Disponible à Tokyo, Yokohama, Osaka, Kyoto, Nagoya et plus. Téléchargez l&#x27;appli, créez un compte et ajoutez votre carte bancaire, puis saisissez votre destination.</span><span class="lang lang-es" lang="es" hidden>Disponible en Tokio, Yokohama, Osaka, Kioto, Nagoya y más. Descargue la app, registre su cuenta y tarjeta, luego ingrese su destino.</span></div>
   </div>
 
   <div class="back-footer">
-    <a href="../" data-i18n="backToMenu">← Back to Menu</a>
+    <a href="../" data-i18n-group="backToMenu"><span class="lang lang-en" lang="en">← Back to Menu</span><span class="lang lang-ja" lang="ja" hidden>← メニューへ戻る</span><span class="lang lang-zh" lang="zh-Hans" hidden>← 返回菜单</span><span class="lang lang-ko" lang="ko" hidden>← 메뉴로 돌아가기</span><span class="lang lang-fr" lang="fr" hidden>← Retour au menu</span><span class="lang lang-es" lang="es" hidden>← Volver al menú</span></a>
   </div>
 </div>
 
 <script>
 const STRINGS = {
-  en: {
-    pageTitle: 'For Taxi',
-    noteTitle: '📢 Note',
-    noteBody: 'Japanese taxi drivers do not speak English. Please show the card below to your driver when getting in the taxi.',
-    appsTitle: '📱 Taxi Apps in Japan',
-    goBody: 'Available across all 47 prefectures in Japan. Easily book by specifying pick-up and drop-off on the map. Supports credit card pre-payment and in-app receipts. Note: the app interface is in Japanese only — a translation app may help.',
-    nearmeBody: 'Shared rides from your location to major airports — no fixed stops or schedules. Split costs with other passengers. Free cancellation up to 48 hours before departure. Credit card payment only.',
-    uberBody: 'Available in Tokyo, Yokohama, Osaka, Kyoto, Nagoya, and more. Download the app, register your account and credit card, then input your destination. The app matches you with nearby taxis and shows their location on the map.',
-    jaOnly: 'JA only',
-    enSupport: 'EN support',
-    enSupport2: 'EN support',
-    backToMenu: '← Back to Menu',
+  "en": {
+    "pageTitle": "For Taxi",
+    "noteTitle": "📢 Note",
+    "noteBody": "Japanese taxi drivers do not speak English. Please show the card below to your driver when getting in the taxi.",
+    "appsTitle": "📱 Taxi Apps in Japan",
+    "goBody": "Available across all 47 prefectures in Japan. Easily book by specifying pick-up and drop-off on the map. Supports credit card pre-payment and in-app receipts. Note: the app interface is in Japanese only — a translation app may help.",
+    "nearmeBody": "Shared rides from your location to major airports — no fixed stops or schedules. Split costs with other passengers. Free cancellation up to 48 hours before departure. Credit card payment only.",
+    "uberBody": "Available in Tokyo, Yokohama, Osaka, Kyoto, Nagoya, and more. Download the app, register your account and credit card, then input your destination. The app matches you with nearby taxis and shows their location on the map.",
+    "jaOnly": "JA only",
+    "enSupport": "EN support",
+    "enSupport2": "EN support",
+    "backToMenu": "← Back to Menu",
+    "languageLabel": "Language",
+    "backLabel": "Back to menu",
+    "mapsBtn": "📍 Google Maps",
+    "imageAlt": "Illustrated guide (English); translated instructions follow.",
+    "documentTitle": "For Taxi — Cube Nishi Asakusa",
+    "driverPrompt": "🚕 Show the following to your driver"
   },
-  ja: {
-    pageTitle: 'タクシー利用案内',
-    noteTitle: '📢 ご案内',
-    noteBody: '日本のタクシー運転手は英語を話しません。乗車時に以下のカードを運転手にお見せください。',
-    appsTitle: '📱 タクシーアプリ',
-    goBody: '全国47都道府県で利用可能。地図上で乗降場所を指定して簡単予約。クレジットカード事前決済・アプリ内領収書に対応しています。',
-    nearmeBody: '指定場所から主要空港まで乗合タクシー。乗合で料金を分担。出発48時間前まで無料キャンセル可。クレジットカード払いのみ。',
-    uberBody: '東京・横浜・大阪・京都・名古屋などで利用可能。アプリをダウンロードしてアカウントを作成し、目的地を入力するだけ。近くのタクシーとマッチングされます。',
-    jaOnly: '日本語のみ',
-    enSupport: '英語対応',
-    enSupport2: '英語対応',
-    backToMenu: '← メニューへ戻る',
+  "ja": {
+    "pageTitle": "タクシー利用案内",
+    "noteTitle": "📢 ご案内",
+    "noteBody": "日本のタクシー運転手は英語を話しません。乗車時に以下のカードを運転手にお見せください。",
+    "appsTitle": "📱 タクシーアプリ",
+    "goBody": "全国47都道府県で利用可能。地図上で乗降場所を指定して簡単予約。クレジットカード事前決済・アプリ内領収書に対応しています。",
+    "nearmeBody": "指定場所から主要空港まで乗合タクシー。乗合で料金を分担。出発48時間前まで無料キャンセル可。クレジットカード払いのみ。",
+    "uberBody": "東京・横浜・大阪・京都・名古屋などで利用可能。アプリをダウンロードしてアカウントを作成し、目的地を入力するだけ。近くのタクシーとマッチングされます。",
+    "jaOnly": "日本語のみ",
+    "enSupport": "英語対応",
+    "enSupport2": "英語対応",
+    "backToMenu": "← メニューへ戻る",
+    "languageLabel": "言語",
+    "backLabel": "メニューに戻る",
+    "mapsBtn": "📍 Google マップ",
+    "imageAlt": "図解（英語）。翻訳した説明は画像の後にあります。",
+    "documentTitle": "タクシー利用案内 — Cube Nishi Asakusa",
+    "driverPrompt": "🚕 以下を運転手の方にお見せください"
   },
-  zh: {
-    pageTitle: '出租车指南',
-    noteTitle: '📢 提示',
-    noteBody: '日本出租车司机不会说英语。上车时请将以下卡片出示给司机。',
-    appsTitle: '📱 日本打车应用',
-    goBody: '覆盖日本全部47个都道府县。在地图上指定上下车地点即可轻松预约。支持信用卡预付款和应用内收据。注意：界面仅有日语，可能需要翻译软件辅助。',
-    nearmeBody: '从指定地点到主要机场的拼车服务，无需等待固定班次。可与其他乘客分摊费用。出发48小时前可免费取消。仅支持信用卡付款。',
-    uberBody: '可在东京、横滨、大阪、京都、名古屋等城市使用。下载应用并注册账户和信用卡信息，输入目的地，应用将为您匹配附近的出租车。',
-    jaOnly: '仅日语',
-    enSupport: '支持英语',
-    enSupport2: '支持英语',
-    backToMenu: '← 返回菜单',
+  "zh": {
+    "pageTitle": "出租车指南",
+    "noteTitle": "📢 提示",
+    "noteBody": "日本出租车司机不会说英语。上车时请将以下卡片出示给司机。",
+    "appsTitle": "📱 日本打车应用",
+    "goBody": "覆盖日本全部47个都道府县。在地图上指定上下车地点即可轻松预约。支持信用卡预付款和应用内收据。注意：界面仅有日语，可能需要翻译软件辅助。",
+    "nearmeBody": "从指定地点到主要机场的拼车服务，无需等待固定班次。可与其他乘客分摊费用。出发48小时前可免费取消。仅支持信用卡付款。",
+    "uberBody": "可在东京、横滨、大阪、京都、名古屋等城市使用。下载应用并注册账户和信用卡信息，输入目的地，应用将为您匹配附近的出租车。",
+    "jaOnly": "仅日语",
+    "enSupport": "支持英语",
+    "enSupport2": "支持英语",
+    "backToMenu": "← 返回菜单",
+    "languageLabel": "语言",
+    "backLabel": "返回菜单",
+    "mapsBtn": "📍 Google 地图",
+    "imageAlt": "英文图解，译文请见图片下方。",
+    "documentTitle": "出租车指南 — Cube Nishi Asakusa",
+    "driverPrompt": "🚕 请将以下内容出示给司机"
   },
-  ko: {
-    pageTitle: '택시 안내',
-    noteTitle: '📢 안내',
-    noteBody: '일본 택시 기사는 영어를 하지 못합니다. 승차 시 아래 카드를 기사에게 보여주세요.',
-    appsTitle: '📱 일본 택시 앱',
-    goBody: '일본 전국 47개 도도부현에서 이용 가능. 지도에서 승하차 위치를 지정해 간편 예약. 신용카드 선결제 및 앱 내 영수증 지원. 앱 인터페이스는 일본어 전용.',
-    nearmeBody: '지정 장소에서 주요 공항까지 합승 서비스. 다른 승객과 요금 분담 가능. 출발 48시간 전까지 무료 취소. 신용카드 결제만 가능.',
-    uberBody: '도쿄, 요코하마, 오사카, 교토, 나고야 등에서 이용 가능. 앱을 다운로드하고 계정 및 신용카드를 등록한 후 목적지를 입력하면 근처 택시와 연결됩니다.',
-    jaOnly: '일본어 전용',
-    enSupport: '영어 지원',
-    enSupport2: '영어 지원',
-    backToMenu: '← 메뉴로 돌아가기',
+  "ko": {
+    "pageTitle": "택시 안내",
+    "noteTitle": "📢 안내",
+    "noteBody": "일본 택시 기사는 영어를 하지 못합니다. 승차 시 아래 카드를 기사에게 보여주세요.",
+    "appsTitle": "📱 일본 택시 앱",
+    "goBody": "일본 전국 47개 도도부현에서 이용 가능. 지도에서 승하차 위치를 지정해 간편 예약. 신용카드 선결제 및 앱 내 영수증 지원. 앱 인터페이스는 일본어 전용.",
+    "nearmeBody": "지정 장소에서 주요 공항까지 합승 서비스. 다른 승객과 요금 분담 가능. 출발 48시간 전까지 무료 취소. 신용카드 결제만 가능.",
+    "uberBody": "도쿄, 요코하마, 오사카, 교토, 나고야 등에서 이용 가능. 앱을 다운로드하고 계정 및 신용카드를 등록한 후 목적지를 입력하면 근처 택시와 연결됩니다.",
+    "jaOnly": "일본어 전용",
+    "enSupport": "영어 지원",
+    "enSupport2": "영어 지원",
+    "backToMenu": "← 메뉴로 돌아가기",
+    "languageLabel": "언어",
+    "backLabel": "메뉴로 돌아가기",
+    "mapsBtn": "📍 Google 지도",
+    "imageAlt": "영어 그림 안내. 번역된 설명은 이미지 아래에 있습니다.",
+    "documentTitle": "택시 안내 — Cube Nishi Asakusa",
+    "driverPrompt": "🚕 아래 내용을 기사에게 보여주세요"
   },
-  fr: {
-    pageTitle: 'Guide Taxi',
-    noteTitle: '📢 Note',
-    noteBody: 'Les chauffeurs de taxi japonais ne parlent pas anglais. Montrez la carte ci-dessous à votre chauffeur en montant dans le taxi.',
-    appsTitle: '📱 Applications de taxi au Japon',
-    goBody: 'Disponible dans les 47 préfectures du Japon. Réservez facilement en indiquant les points de prise en charge et de dépose sur la carte. Paiement par carte bancaire disponible. Interface en japonais uniquement.',
-    nearmeBody: 'Trajets partagés depuis votre emplacement vers les grands aéroports. Partagez les frais avec d\'autres passagers. Annulation gratuite jusqu\'à 48h avant le départ. Paiement par carte uniquement.',
-    uberBody: 'Disponible à Tokyo, Yokohama, Osaka, Kyoto, Nagoya et plus. Téléchargez l\'appli, créez un compte et ajoutez votre carte bancaire, puis saisissez votre destination.',
-    jaOnly: 'JA uniquement',
-    enSupport: 'Support EN',
-    enSupport2: 'Support EN',
-    backToMenu: '← Retour au menu',
+  "fr": {
+    "pageTitle": "Guide Taxi",
+    "noteTitle": "📢 Note",
+    "noteBody": "Les chauffeurs de taxi japonais ne parlent pas anglais. Montrez la carte ci-dessous à votre chauffeur en montant dans le taxi.",
+    "appsTitle": "📱 Applications de taxi au Japon",
+    "goBody": "Disponible dans les 47 préfectures du Japon. Réservez facilement en indiquant les points de prise en charge et de dépose sur la carte. Paiement par carte bancaire disponible. Interface en japonais uniquement.",
+    "nearmeBody": "Trajets partagés depuis votre emplacement vers les grands aéroports. Partagez les frais avec d'autres passagers. Annulation gratuite jusqu'à 48h avant le départ. Paiement par carte uniquement.",
+    "uberBody": "Disponible à Tokyo, Yokohama, Osaka, Kyoto, Nagoya et plus. Téléchargez l'appli, créez un compte et ajoutez votre carte bancaire, puis saisissez votre destination.",
+    "jaOnly": "JA uniquement",
+    "enSupport": "Support EN",
+    "enSupport2": "Support EN",
+    "backToMenu": "← Retour au menu",
+    "languageLabel": "Langue",
+    "backLabel": "Retour au menu",
+    "mapsBtn": "📍 Google Maps",
+    "imageAlt": "Guide illustré en anglais ; traduction sous les images.",
+    "documentTitle": "Guide Taxi — Cube Nishi Asakusa",
+    "driverPrompt": "🚕 Montrez ceci à votre chauffeur"
   },
-  es: {
-    pageTitle: 'Guía de Taxi',
-    noteTitle: '📢 Nota',
-    noteBody: 'Los taxistas japoneses no hablan inglés. Muestre la tarjeta de abajo a su conductor al subir al taxi.',
-    appsTitle: '📱 Apps de taxi en Japón',
-    goBody: 'Disponible en las 47 prefecturas de Japón. Reserve fácilmente especificando los puntos de recogida y destino en el mapa. Acepta pago con tarjeta de crédito. Interfaz solo en japonés.',
-    nearmeBody: 'Viajes compartidos desde su ubicación a los principales aeropuertos. Comparta el coste con otros pasajeros. Cancelación gratuita hasta 48 horas antes. Solo pago con tarjeta.',
-    uberBody: 'Disponible en Tokio, Yokohama, Osaka, Kioto, Nagoya y más. Descargue la app, registre su cuenta y tarjeta, luego ingrese su destino.',
-    jaOnly: 'Solo JA',
-    enSupport: 'Soporte EN',
-    enSupport2: 'Soporte EN',
-    backToMenu: '← Volver al menú',
-  },
+  "es": {
+    "pageTitle": "Guía de Taxi",
+    "noteTitle": "📢 Nota",
+    "noteBody": "Los taxistas japoneses no hablan inglés. Muestre la tarjeta de abajo a su conductor al subir al taxi.",
+    "appsTitle": "📱 Apps de taxi en Japón",
+    "goBody": "Disponible en las 47 prefecturas de Japón. Reserve fácilmente especificando los puntos de recogida y destino en el mapa. Acepta pago con tarjeta de crédito. Interfaz solo en japonés.",
+    "nearmeBody": "Viajes compartidos desde su ubicación a los principales aeropuertos. Comparta el coste con otros pasajeros. Cancelación gratuita hasta 48 horas antes. Solo pago con tarjeta.",
+    "uberBody": "Disponible en Tokio, Yokohama, Osaka, Kioto, Nagoya y más. Descargue la app, registre su cuenta y tarjeta, luego ingrese su destino.",
+    "jaOnly": "Solo JA",
+    "enSupport": "Soporte EN",
+    "enSupport2": "Soporte EN",
+    "backToMenu": "← Volver al menú",
+    "languageLabel": "Idioma",
+    "backLabel": "Volver al menú",
+    "mapsBtn": "📍 Google Maps",
+    "imageAlt": "Guía ilustrada en inglés; traducción debajo de las imágenes.",
+    "documentTitle": "Guía de Taxi — Cube Nishi Asakusa",
+    "driverPrompt": "🚕 Muestre lo siguiente a su conductor"
+  }
 };
-
-function applyTranslations(lang) {
-  const t = STRINGS[lang];
-  if (!t) return;
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (key in t) el.textContent = t[key];
-  });
-}
-function setLang(lang, btn) {
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  applyTranslations(lang);
-}
-applyTranslations('en');
+window.I18N_STRINGS = STRINGS;
 </script>
+<script src="../assets/i18n.js" defer></script>
   <script src="../assets/cute-pack.js" defer></script>
 </body>
 </html>

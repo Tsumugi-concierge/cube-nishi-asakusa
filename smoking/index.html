@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Smoking Rules — Cube Nishi Asakusa</title>
+<title data-i18n="documentTitle">Smoking Rules — Cube Nishi Asakusa</title>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/i18n.css">
 <style>
   :root{--accent:#c03840;--accent-light:#f0c0c0;--cream:#fff6f7;--text-dark:#2c0010;--text-mid:#6b1f30;}
   .lang-bar{display:flex;justify-content:center;gap:6px;padding:10px 16px;flex-wrap:wrap;background:var(--cream);}
@@ -41,60 +42,108 @@
   <style id="cute-pack-theme">:root{--cp-chip-a:#fff3e8;--cp-chip-b:#fdeef4;--cp-hover-shadow:rgba(220,140,90,.18);--cp-dot-1:rgba(240,170,120,.10);}</style>
 </head>
 <body>
-<div class="lang-bar">
-  <button class="lang-btn active" onclick="setLang('en',this)">&#x1F1EC;&#x1F1E7; EN</button>
-  <button class="lang-btn" onclick="setLang('ja',this)">&#x1F1EF;&#x1F1F5; JA</button>
-  <button class="lang-btn" onclick="setLang('zh',this)">&#x1F1E8;&#x1F1F3; ZH</button>
-  <button class="lang-btn" onclick="setLang('ko',this)">&#x1F1F0;&#x1F1F7; KO</button>
-  <button class="lang-btn" onclick="setLang('fr',this)">&#x1F1EB;&#x1F1F7; FR</button>
-  <button class="lang-btn" onclick="setLang('es',this)">&#x1F1EA;&#x1F1F8; ES</button>
+<div class="lang-bar" role="toolbar" data-i18n-aria-label="languageLabel" aria-label="Language">
+  <button class="lang-btn active" data-lang="en" onclick="setLang('en',this)">&#x1F1EC;&#x1F1E7; EN</button>
+  <button class="lang-btn" data-lang="ja" onclick="setLang('ja',this)">&#x1F1EF;&#x1F1F5; JA</button>
+  <button class="lang-btn" data-lang="zh" onclick="setLang('zh',this)">&#x1F1E8;&#x1F1F3; ZH</button>
+  <button class="lang-btn" data-lang="ko" onclick="setLang('ko',this)">&#x1F1F0;&#x1F1F7; KO</button>
+  <button class="lang-btn" data-lang="fr" onclick="setLang('fr',this)">&#x1F1EB;&#x1F1F7; FR</button>
+  <button class="lang-btn" data-lang="es" onclick="setLang('es',this)">&#x1F1EA;&#x1F1F8; ES</button>
 </div>
 <div class="top-bar">
-  <a href="../" class="back-btn">&#x2190;</a>
+  <a href="../" class="back-btn" data-i18n-aria-label="backLabel" aria-label="Back to menu">&#x2190;</a>
   <span class="top-emoji">🚭</span>
-  <div class="top-title" data-i18n="pageTitle">Smoking Rules</div>
+  <div class="top-title" data-i18n-group="pageTitle"><span class="lang lang-en" lang="en">Smoking Rules</span><span class="lang lang-ja" lang="ja" hidden>喫煙ルール</span><span class="lang lang-zh" lang="zh-Hans" hidden>吸烟规定</span><span class="lang lang-ko" lang="ko" hidden>흡연 규정</span><span class="lang lang-fr" lang="fr" hidden>Règles fumeur</span><span class="lang lang-es" lang="es" hidden>Normas para fumadores</span></div>
 </div>
 <div class="content">
-  <div class="no-smoking-sign" aria-hidden="true">🚭</div>
+  <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQEAYABgAAD/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2wBDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCT/wgARCAaVBKcDAREAAhEBAxEB/8QAHAABAAEFAQEAAAAAAAAAAAAAAAUGBAEDBwII/8QAGwEBAAMBAQEBAAAAAAAAAAAAAAEDAgQFBgf/2gAMAwEAAhADEAAAAZzXIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMgwAAAAAASEb9JjZrA2J9p0MgAAAAAAAAAe0yUbtWbScgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACWiyzZ3pkG6emkAAAAAVFF8hGqN1zAVFF0jFlGa5QAABcRrCNExMRbPxbTU0zMWW0xTs0AACt89cJNMHNQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAArLPVATTHTXcxq3mN8TqmN8TbTG6J8mic5LmNC1nNRRfIRqjdc1xGvMxcRrYmxnG6J1TFxGrWc+Eb07Im5a3JhZqlIsqSL6SnmmotkllFa5LiNeJEe4m1nNb564SaYOat6dkTbTHlAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAq..." alt="" class="page-img" />
   <div class="info-card">
-    <p data-i18n="sm1"></p>
-    <p data-i18n="sm2"></p>
-    <p data-i18n="sm3"></p>
+    <p data-i18n-group="sm1"><span class="lang lang-en" lang="en">Smoking is STRICTLY PROHIBITED inside the property. Any indoor smoking will require special cleaning and a fee of 20,000 yen will be charged.</span><span class="lang lang-ja" lang="ja" hidden>室内での喫煙は厳禁です。室内で喫煙が発覚した場合、特別清掃として20,000円の費用が請求されます。</span><span class="lang lang-zh" lang="zh-Hans" hidden>房内严禁吸烟。如发现室内吸烟，将收取20,000日元特别清洁费用。</span><span class="lang lang-ko" lang="ko" hidden>실내 흡연은 엄격히 금지됩니다. 실내에서 흡연 시 특별 청소 비용으로 20,000엔이 청구됩니다.</span><span class="lang lang-fr" lang="fr" hidden>Il est STRICTEMENT INTERDIT de fumer à l&#x27;intérieur. Tout fumage en intérieur entraînera un nettoyage spécial et des frais de 20 000 yens.</span><span class="lang lang-es" lang="es" hidden>Fumar dentro de la propiedad está ESTRICTAMENTE PROHIBIDO. Cualquier caso de fumado interior conllevará limpieza especial y un cargo de 20.000 yenes.</span></p>
+    <p data-i18n-group="sm2"><span class="lang lang-en" lang="en">Smoking is prohibited throughout the property, including all balconies. There is no smoking area on the premises.</span><span class="lang lang-ja" lang="ja" hidden>室内・すべてのバルコニーを含め、敷地内は全面禁煙です。敷地内に喫煙できる場所はありません。</span><span class="lang lang-zh" lang="zh-Hans" hidden>整个住宿场所全面禁烟，包括室内及所有阳台。场所内不设吸烟区。</span><span class="lang lang-ko" lang="ko" hidden>실내와 모든 발코니를 포함한 숙소 전체가 금연 구역입니다. 숙소 내에는 흡연 구역이 없습니다.</span><span class="lang lang-fr" lang="fr" hidden>Il est interdit de fumer dans tout l&#x27;hébergement, y compris sur tous les balcons. Aucun espace fumeur n&#x27;est prévu sur place.</span><span class="lang lang-es" lang="es" hidden>Está prohibido fumar en todo el alojamiento, incluidos todos los balcones. No hay ninguna zona de fumadores en el recinto.</span></p>
+    <p data-i18n-group="sm3"><span class="lang lang-en" lang="en">This accommodation is operated with the understanding of our neighbors. Failure to follow smoking rules may result in being asked to leave. Please be considerate, especially late at night.</span><span class="lang lang-ja" lang="ja" hidden>この宿泊施設は近隣の理解のもとで運営されています。喫煙ルールに従わない場合は退去をお願いすることがあります。特に深夜の大声はご遠慮ください。</span><span class="lang lang-zh" lang="zh-Hans" hidden>本住宿是在邻居的理解下运营的。不遵守吸烟规定可能被要求离开。请特别注意深夜不要大声说话。</span><span class="lang lang-ko" lang="ko" hidden>이 숙소는 이웃의 이해 하에 운영됩니다. 흡연 규정을 따르지 않으면 퇴실을 요청할 수 있습니다. 특히 심야에는 큰 소리를 자제해 주세요.</span><span class="lang lang-fr" lang="fr" hidden>Cet hébergement fonctionne avec la compréhension du voisinage. Le non-respect peut entraîner une expulsion. Soyez courtois, surtout la nuit.</span><span class="lang lang-es" lang="es" hidden>Este alojamiento opera con la comprensión de los vecinos. El incumplimiento puede resultar en la solicitud de abandono. Por favor, sea considerado, especialmente de noche.</span></p>
   </div>
   <div class="back-footer">
-    <a href="../" data-i18n="backToMenu">&#x2190; Back to Menu</a>
+    <a href="../" data-i18n-group="backToMenu"><span class="lang lang-en" lang="en">← Back to Menu</span><span class="lang lang-ja" lang="ja" hidden>← メニューに戻る</span><span class="lang lang-zh" lang="zh-Hans" hidden>← 返回菜单</span><span class="lang lang-ko" lang="ko" hidden>← 메뉴로 돌아가기</span><span class="lang lang-fr" lang="fr" hidden>← Retour au menu</span><span class="lang lang-es" lang="es" hidden>← Volver al menú</span></a>
   </div>
 </div>
 <script>
-const S={
-  en:{pageTitle:"Smoking Rules",backToMenu:"← Back to Menu",
-    sm1:"Smoking is STRICTLY PROHIBITED inside the property. Any indoor smoking will require special cleaning and a fee of 20,000 yen will be charged.",
-    sm2:"Smoking is prohibited throughout the property, including all balconies. There is no smoking area on the premises.",
-    sm3:"This accommodation is operated with the understanding of our neighbors. Failure to follow smoking rules may result in being asked to leave. Please be considerate, especially late at night."},
-  ja:{pageTitle:"喫煙ルール",backToMenu:"← メニューに戻る",
-    sm1:"室内での喫煙は厳禁です。室内で喫煙が発覚した場合、特別清掃として20,000円の費用が請求されます。",
-    sm2:"室内・すべてのバルコニーを含め、敷地内は全面禁煙です。敷地内に喫煙できる場所はありません。",
-    sm3:"この宿泊施設は近隣の理解のもとで運営されています。喫煙ルールに従わない場合は退去をお願いすることがあります。特に深夜の大声はご遠慮ください。"},
-  zh:{pageTitle:"吸烟规定",backToMenu:"← 返回菜单",
-    sm1:"房内严禁吸烟。如发现室内吸烟，将收取20,000日圆特别清洁费用。",
-    sm2:"整个住宿场所全面禁烟，包括室内及所有阳台。场所内不设吸烟区。",
-    sm3:"本住宿是在邻居的理解下运营的。不遵守吸烟规定可能被要求离开。请特别注意深夜不要大声说话。"},
-  ko:{pageTitle:"흡연 규정",backToMenu:"← 메뉴로 돌아가기",
-    sm1:"실내 흡연은 엄격히 금지됩니다. 실내에서 흡연 시 특별 청소 비용으로 20,000엔이 청구됩니다.",
-    sm2:"실내와 모든 발코니를 포함한 숙소 전체가 금연 구역입니다. 숙소 내에는 흡연 구역이 없습니다.",
-    sm3:"이 숙소는 이웃의 이해 하에 운영됩니다. 흡연 규정을 따르지 않으면 퇴실을 요청할 수 있습니다. 특히 심야에는 큰 소리를 자제해 주세요."},
-  fr:{pageTitle:"Règles fumeur",backToMenu:"← Retour au menu",
-    sm1:"Il est STRICTEMENT INTERDIT de fumer à l'intérieur. Tout fumage en intérieur entraînera un nettoyage spécial et des frais de 20 000 yens.",
-    sm2:"Il est interdit de fumer dans tout l'hébergement, y compris sur tous les balcons. Aucun espace fumeur n'est prévu sur place.",
-    sm3:"Cet hébergement fonctionne avec la compréhension du voisinage. Le non-respect peut entraîner une expulsion. Soyez courtois, surtout la nuit."},
-  es:{pageTitle:"Normas para fumadores",backToMenu:"← Volver al menú",
-    sm1:"Fumar dentro de la propiedad está ESTRICTAMENTE PROHIBIDO. Cualquier caso de fumado interior conllevará limpieza especial y un cargo de 20.000 yenes.",
-    sm2:"Está prohibido fumar en todo el alojamiento, incluidos todos los balcones. No hay ninguna zona de fumadores en el recinto.",
-    sm3:"Este alojamiento opera con la comprensión de los vecinos. El incumplimiento puede resultar en la solicitud de abandono. Por favor, sea considerado, especialmente de noche."}
+const S = {
+  "en": {
+    "pageTitle": "Smoking Rules",
+    "backToMenu": "← Back to Menu",
+    "sm1": "Smoking is STRICTLY PROHIBITED inside the property. Any indoor smoking will require special cleaning and a fee of 20,000 yen will be charged.",
+    "sm2": "Smoking is prohibited throughout the property, including all balconies. There is no smoking area on the premises.",
+    "sm3": "This accommodation is operated with the understanding of our neighbors. Failure to follow smoking rules may result in being asked to leave. Please be considerate, especially late at night.",
+    "languageLabel": "Language",
+    "backLabel": "Back to menu",
+    "mapsBtn": "📍 Google Maps",
+    "imageAlt": "Illustrated guide (English); translated instructions follow.",
+    "documentTitle": "Smoking Rules — Cube Nishi Asakusa"
+  },
+  "ja": {
+    "pageTitle": "喫煙ルール",
+    "backToMenu": "← メニューに戻る",
+    "sm1": "室内での喫煙は厳禁です。室内で喫煙が発覚した場合、特別清掃として20,000円の費用が請求されます。",
+    "sm2": "室内・すべてのバルコニーを含め、敷地内は全面禁煙です。敷地内に喫煙できる場所はありません。",
+    "sm3": "この宿泊施設は近隣の理解のもとで運営されています。喫煙ルールに従わない場合は退去をお願いすることがあります。特に深夜の大声はご遠慮ください。",
+    "languageLabel": "言語",
+    "backLabel": "メニューに戻る",
+    "mapsBtn": "📍 Google マップ",
+    "imageAlt": "図解（英語）。翻訳した説明は画像の後にあります。",
+    "documentTitle": "喫煙ルール — Cube Nishi Asakusa"
+  },
+  "zh": {
+    "pageTitle": "吸烟规定",
+    "backToMenu": "← 返回菜单",
+    "sm1": "房内严禁吸烟。如发现室内吸烟，将收取20,000日元特别清洁费用。",
+    "sm2": "整个住宿场所全面禁烟，包括室内及所有阳台。场所内不设吸烟区。",
+    "sm3": "本住宿是在邻居的理解下运营的。不遵守吸烟规定可能被要求离开。请特别注意深夜不要大声说话。",
+    "languageLabel": "语言",
+    "backLabel": "返回菜单",
+    "mapsBtn": "📍 Google 地图",
+    "imageAlt": "英文图解，译文请见图片下方。",
+    "documentTitle": "吸烟规定 — Cube Nishi Asakusa"
+  },
+  "ko": {
+    "pageTitle": "흡연 규정",
+    "backToMenu": "← 메뉴로 돌아가기",
+    "sm1": "실내 흡연은 엄격히 금지됩니다. 실내에서 흡연 시 특별 청소 비용으로 20,000엔이 청구됩니다.",
+    "sm2": "실내와 모든 발코니를 포함한 숙소 전체가 금연 구역입니다. 숙소 내에는 흡연 구역이 없습니다.",
+    "sm3": "이 숙소는 이웃의 이해 하에 운영됩니다. 흡연 규정을 따르지 않으면 퇴실을 요청할 수 있습니다. 특히 심야에는 큰 소리를 자제해 주세요.",
+    "languageLabel": "언어",
+    "backLabel": "메뉴로 돌아가기",
+    "mapsBtn": "📍 Google 지도",
+    "imageAlt": "영어 그림 안내. 번역된 설명은 이미지 아래에 있습니다.",
+    "documentTitle": "흡연 규정 — Cube Nishi Asakusa"
+  },
+  "fr": {
+    "pageTitle": "Règles fumeur",
+    "backToMenu": "← Retour au menu",
+    "sm1": "Il est STRICTEMENT INTERDIT de fumer à l'intérieur. Tout fumage en intérieur entraînera un nettoyage spécial et des frais de 20 000 yens.",
+    "sm2": "Il est interdit de fumer dans tout l'hébergement, y compris sur tous les balcons. Aucun espace fumeur n'est prévu sur place.",
+    "sm3": "Cet hébergement fonctionne avec la compréhension du voisinage. Le non-respect peut entraîner une expulsion. Soyez courtois, surtout la nuit.",
+    "languageLabel": "Langue",
+    "backLabel": "Retour au menu",
+    "mapsBtn": "📍 Google Maps",
+    "imageAlt": "Guide illustré en anglais ; traduction sous les images.",
+    "documentTitle": "Règles fumeur — Cube Nishi Asakusa"
+  },
+  "es": {
+    "pageTitle": "Normas para fumadores",
+    "backToMenu": "← Volver al menú",
+    "sm1": "Fumar dentro de la propiedad está ESTRICTAMENTE PROHIBIDO. Cualquier caso de fumado interior conllevará limpieza especial y un cargo de 20.000 yenes.",
+    "sm2": "Está prohibido fumar en todo el alojamiento, incluidos todos los balcones. No hay ninguna zona de fumadores en el recinto.",
+    "sm3": "Este alojamiento opera con la comprensión de los vecinos. El incumplimiento puede resultar en la solicitud de abandono. Por favor, sea considerado, especialmente de noche.",
+    "languageLabel": "Idioma",
+    "backLabel": "Volver al menú",
+    "mapsBtn": "📍 Google Maps",
+    "imageAlt": "Guía ilustrada en inglés; traducción debajo de las imágenes.",
+    "documentTitle": "Normas para fumadores — Cube Nishi Asakusa"
+  }
 };
-function setLang(l,btn){document.querySelectorAll('.lang-btn').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const t=S[l];if(!t)return;document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(k in t)el.textContent=t[k];});}
-setLang('en',document.querySelector('.lang-btn.active'));
+window.I18N_STRINGS = S;
 </script>
+<script src="../assets/i18n.js" defer></script>
   <script src="../assets/cute-pack.js" defer></script>
 </body>
 </html>
