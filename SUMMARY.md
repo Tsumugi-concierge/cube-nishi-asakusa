@@ -136,3 +136,34 @@ git push origin feat/i18n-6lang
 - `how-to-open/` は「ドアコード等は登録後に案内」との説明のみで、具体値は含まれていません。
 
 以上のとおり、6言語化に関する変更のみをコミットし、不要ファイルは除外・削除しました。main への変更やマージは行っていません。
+
+---
+
+## main マージ結果 2026-11-21
+
+- 対象: `feat/i18n-6lang` → `main`（`--no-ff`）
+- マージコミット: `69a2abe` Merge branch 'feat/i18n-6lang' into main --no-ff
+
+### 競合と解消内容
+
+- `index.html`
+  - 解消: ボタンの多言語 UI（`data-i18n-group` と各言語スパン）はブランチ版を採用。アイコンは main の「🚭」に統一。
+- `house-rules/index.html`
+  - 解消: ブランチの i18n 構造/キーを維持しつつ、本文 hr3（全面禁煙の明記）は main 側の厳格な文面に差し替え（6言語）。
+- `smoking/index.html`
+  - 解消: ブランチの i18n UI（言語バー、aria ラベル、図解等）を採用。ポリシーは main の「敷地内全面禁煙」を採用し、`sm2` を6言語で差し替え。ヘッダーのアイコンは「🚭」。
+
+### 秘密情報の最終確認
+
+- リポジトリ全体（HTML）を対象に、以下キーワードと 4〜8桁の数値の近接を正規表現で検査し、該当なし。
+  - 日本語: 「鍵／キー／キーボックス／暗証／アクセス／ロックボックス／ダイヤル／コード／パスコード」
+  - 英語: `key box|keybox|lockbox|access code|door code|passcode|\bpin\b`
+- Wi‑Fi 情報は SSID のみ掲載。パスワード値の静的掲載・QR等の自動生成はなし。
+
+### 公開確認（GitHub Pages）
+
+- URL: https://tsumugi-concierge.github.io/cube-nishi-asakusa/
+- 確認項目: 言語切替 UI（トップ `nav.lang-switcher`）の存在 → 確認できた。
+- 備考: 反映直後のため、公開ページに旧表示が一時的に残る可能性あり（CDN キャッシュ等）。ローカル `main` の `index.html` は SSID のみ表示で、パスワード行は存在しない。
+
+以上。
