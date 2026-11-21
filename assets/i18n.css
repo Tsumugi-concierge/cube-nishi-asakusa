@@ -45,3 +45,7 @@
   color: var(--i18n-active-color);
   box-shadow: 0 4px 12px rgba(190,0,50,0.28);
 }
+
+/* Keep inactive translations out of both the layout and accessibility tree. */
+.lang[hidden] { display: none !important; }
+.lang { overflow-wrap: anywhere; }
